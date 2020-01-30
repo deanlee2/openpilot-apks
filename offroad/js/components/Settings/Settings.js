@@ -180,7 +180,7 @@ class Settings extends Component {
                 Version: version,
             },
         } = this.props;
-        const software = !!parseInt(isPassive) ? 'chffrplus' : 'openpilot';
+        const software = !!parseInt(isPassive) ? 'chffrplus' : 'wepilot';
         let connectivity = 'Disconnected'
         if (wifiState.isConnected && wifiState.ssid) {
             connectivity = wifiState.ssid;
@@ -282,7 +282,7 @@ class Settings extends Component {
                         { !parseInt(isPassive) ? (
                             <X.TableCell
                                 type='switch'
-                                title='Enable openpilot'
+                                title='Enable wepilot'
                                 value={ !!parseInt(openpilotEnabled) }
                                 iconSource={ Icons.openpilot }
                                 description='Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
@@ -444,7 +444,7 @@ class Settings extends Component {
                 Passive: isPassive,
             },
         } = this.props;
-        const software = !!parseInt(isPassive) ? 'chffrplus' : 'openpilot';
+        const software = !!parseInt(isPassive) ? 'chffrplus' : 'wepilot';
         return (
             <View style={ Styles.settings }>
                 <View style={ Styles.settingsHeader }>
@@ -564,7 +564,7 @@ class Settings extends Component {
             },
         } = this.props;
         const { expandedCell } = this.state;
-        const software = !!parseInt(isPassive) ? 'chffrplus' : 'openpilot';
+        const software = !!parseInt(isPassive) ? 'chffrplus' : 'wepilot';
         return (
             <View style={ Styles.settings }>
                 <View style={ Styles.settingsHeader }>
