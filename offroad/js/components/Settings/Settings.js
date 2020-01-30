@@ -23,7 +23,7 @@ import {
     deleteParam,
     updateParam,
     refreshParams,
-} from '../../store/params/actions';
+d} from '../../store/params/actions';
 
 import X from '../../themes';
 import Styles from './SettingsStyles';
