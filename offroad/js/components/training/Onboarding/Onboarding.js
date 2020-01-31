@@ -326,20 +326,18 @@ class Onboarding extends Component {
                 <X.Text
                     size='jumbo' color='white' weight='bold'
                     style={ Styles.onboardingStepHeader }>
-                    Welcome to openpilot alpha
+                    欢迎使用 wepilot
                 </X.Text>
                 <X.Text
                     color='white' weight='light'
                     style={ Styles.onboardingStepContext }>
-                    Now that you’re all set up, it’s important to
-                    understand the functionality and limitations of
-                    openpilot as alpha software before testing.
+                    在使用wepilot之前，您需要了解wepilot自动驾驶适用的场景，提供的功能，以及相应的操作方式。
                 </X.Text>
                 <View style={ Styles.onboardingPrimaryAction }>
                     <X.Button
                         color='setupPrimary'
                         onPress={ () => this.setStep('OB_INTRO') }>
-                        Begin Training
+                        点击继续
                     </X.Button>
                 </View>
             </X.Entrance>
@@ -368,33 +366,31 @@ class Onboarding extends Component {
                     </View>
                     <View style={ Styles.onboardingStepPointBody }>
                         <X.Text size='bigger' color='white' weight='bold'>
-                            openpilot is an advanced driver assistance system.
+                            wepilot是一个高级辅助驾驶系统.
                         </X.Text>
                         <X.Text
                             size='smallish' color='white' weight='light'
                             style={ Styles.onboardingStepContextSmall }>
-                            A driver assistance system is not a self driving car.
-                            This means openpilot is designed to work with you,
-                            not without you. Your attention is required to drive.
+                            高级辅助驾驶系统并不是真正的无人驾驶系统，在wepilot替您驾驶车辆的过程中，您需要时刻保持关注并准备接管车辆的控制。
                         </X.Text>
                         <X.CheckboxField
                             size='small'
                             color='white'
                             isChecked={ stepChecks.includes(1) }
                             onPress={ () => this.handleIntroCheckboxPressed(1) }
-                            label='I will keep my eyes on the road.' />
+                            label='我会保持关注路况.' />
                         <X.CheckboxField
                             size='small'
                             color='white'
                             isChecked={ stepChecks.includes(2) }
                             onPress={ () => this.handleIntroCheckboxPressed(2) }
-                            label='I will be ready to take over at any time.' />
+                            label='我会随时准备好接管车辆控制.' />
                         <X.CheckboxField
                             size='small'
                             color='white'
                             isChecked={ stepChecks.includes(3) }
                             onPress={ () => this.handleIntroCheckboxPressed(3) }
-                            label='I will be ready to take over at any time!' />
+                            label='我会随时准备好接管车辆控制!' />
                     </View>
                 </View>
             </X.Entrance>
@@ -422,13 +418,12 @@ class Onboarding extends Component {
                 </View>
                 <View style={ Styles.onboardingStepPointBody }>
                     <X.Text size='bigger' color='white' weight='bold'>
-                        openpilot uses multiple sensors to see the road ahead.
+                        wepilot使用多种传感器来判断当前路况.
                     </X.Text>
                     <X.Text
                         size='smallish' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmall }>
-                        Before any signals are sent to control your car,
-                        sensors are fused to construct a scene of the road.
+                        wepilot使用摄像头和雷达来判断当前路况，在大雾，暴雨等视线不佳的天气情况下，请不要使用wepilot。
                     </X.Text>
                     <X.RadioField
                         size='big'
@@ -436,7 +431,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('camera') }
                         hasAppend={ true }
                         onPress={ () => this.handleSensorRadioPressed('camera') }
-                        label='Camera from Device' />
+                        label='摄像头' />
                     <X.RadioField
                         size='big'
                         color='white'
@@ -444,7 +439,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('radar') }
                         hasAppend={ true }
                         onPress={ () => this.handleSensorRadioPressed('radar') }
-                        label='Radar from your car' />
+                        label='毫米波雷达' />
                 </View>
             </View>
         )
@@ -692,12 +687,13 @@ class Onboarding extends Component {
                 </View>
                 <View style={ Styles.onboardingStepPointBody }>
                     <X.Text size='bigger' color='white' weight='bold'>
-                        openpilot can change lanes with your assistance.
+                        切换车道，超车
                     </X.Text>
                     <X.Text
                         size='smallish' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmall }>
-                        openpilot is not capable of checking if a lane change is safe. This is your job. openpilot will change lanes regardless if another vehicle is present.
+                            朝要切换车道的方向打转向灯，并微拨方向盘，wepilot将执行自动切换车道的动作。
+                            wepilot并不会检查后方是否有车。在操作前，您必须自己确认换道是否安全。
                     </X.Text>
                     <X.RadioField
                         size='big'
@@ -705,7 +701,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('start') }
                         hasAppend={ true }
                         onPress={ () => this.handleLaneChangeRadioPressed('start') }
-                        label='Start Lane Change' />
+                        label='切换车道' />
                     <X.RadioField
                         size='big'
                         color='white'
@@ -713,7 +709,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('perform') }
                         hasAppend={ true }
                         onPress={ () => this.handleLaneChangeRadioPressed('perform') }
-                        label='Perform Lane Change' />
+                        label='超车' />
                 </View>
             </View>
         )
@@ -730,10 +726,10 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleLaneChangeRadioPressed('index') }>
-                        openpilot controls
+                        wepilot 控制
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
-                        Start Lane Change
+                        切换车道
                     </X.Text>
                     <X.Text
                         size='small' color='white' weight='light'

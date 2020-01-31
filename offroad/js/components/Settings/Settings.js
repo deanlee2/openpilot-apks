@@ -188,12 +188,12 @@ class Settings extends Component {
             connectivity = simState.networkType;
         }
         const settingsMenuItems = [
-            {
-                icon: Icons.user,
-                title: 'Account',
-                context: isPaired ? 'Paired' : 'Unpaired',
-                route: SettingsRoutes.ACCOUNT,
-            },
+            // {
+            //     icon: Icons.user,
+            //     title: 'Account',
+            //     context: isPaired ? 'Paired' : 'Unpaired',
+            //     route: SettingsRoutes.ACCOUNT,
+            // },
             {
                 icon: Icons.eon,
                 title: 'Device',
@@ -282,17 +282,17 @@ class Settings extends Component {
                         { !parseInt(isPassive) ? (
                             <X.TableCell
                                 type='switch'
-                                title='Enable wepilot'
+                                title='启用 wepilot'
                                 value={ !!parseInt(openpilotEnabled) }
                                 iconSource={ Icons.openpilot }
-                                description='Use the openpilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
+                                description='Use the wepilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
                                 isExpanded={ expandedCell == 'openpilot_enabled' }
                                 handleExpanded={ () => this.handleExpanded('openpilot_enabled') }
                                 handleChanged={ this.props.setOpenpilotEnabled } />
                         ) : null }
                         <X.TableCell
                             type='switch'
-                            title='Enable Lane Departure Warnings'
+                            title='启用车道偏离警告'
                             value={ !!parseInt(isLaneDepartureWarningEnabled) }
                             iconSource={ Icons.warning }
                             description='Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31mph (50kph).'
@@ -370,7 +370,7 @@ class Settings extends Component {
                         <X.Button
                             color='settingsDefault'
                             onPress={ () => this.props.openTrainingGuide() }>
-                            Review Training Guide
+                            阅读说明
                         </X.Button>
                     </X.Table>
                 </ScrollView>
@@ -624,13 +624,13 @@ class Settings extends Component {
                         <X.TableCell
                             title='Version'
                             value={ `${ software } v${ version }` } />
-                        <X.TableCell
+                        {/* <X.TableCell
                             title='Git Branch'
                             value={ gitBranch } />
                         <X.TableCell
                             title='Git Revision'
                             value={ gitRevision.slice(0, 12) }
-                            valueTextSize='tiny' />
+                            valueTextSize='tiny' /> */}
                         <X.TableCell
                             title='Panda Firmware'
                             value={ pandaFirmwareHex != null ? pandaFirmwareHex : 'N/A' }

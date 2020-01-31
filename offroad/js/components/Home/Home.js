@@ -399,7 +399,7 @@ class Home extends Component {
                                   </View>
                               </View>
                           </View>
-                          { isPaired && (hasPrime || !isAmerica) ? (
+                           {/* isPaired && (hasPrime || !isAmerica) ? (
                               <View style={ Styles.homeBodyAccount }>
                                   <View style={ Styles.homeBodyAccountPoints }>
                                       <X.Text
@@ -518,7 +518,7 @@ class Home extends Component {
                                       </X.Gradient>
                                   </X.Button>
                               </View>
-                          ) }
+                          ) */}
                       </View>
                     )}
                 </View>
