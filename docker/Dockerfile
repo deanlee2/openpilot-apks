@@ -51,6 +51,9 @@ RUN git clone https://github.com/capnproto/capnproto-java.git && cd capnproto-ja
 RUN curl -s https://raw.githubusercontent.com/commaai/cereal/master/install_capnp.sh | bash -
 
 # apk time
-RUN mkdir -p /tmp/openpilot/apks
-WORKDIR /tmp/openpilot/apks
+RUN mkdir -p /tmp/openpilot
+RUN cd /tmp/openpilot
+RUN git clone https://github.com/deanlee2/openpilot wepilot
+RUN git clone https://github.com/deanlee2/openpilot-apks.git apks
+WORKDIR /tmp/openpilot
 
