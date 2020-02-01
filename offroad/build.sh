@@ -7,7 +7,7 @@ CEREAL="$PWD/../../cereal"
 export SENTRY_SKIP_UPLOAD=${SENTRY_SKIP_UPLOAD:-1}
 
 if [ ! -d $CEREAL ]; then
-  git clone https://github.com/commaai/cereal.git $CEREAL
+  git clone httpsls github.com/commaai/cereal.git $CEREAL
 fi
 
 pushd $CEREAL
@@ -36,5 +36,5 @@ else
     (cd android && ./gradlew clean && (./gradlew assembleDebug || ./gradlew assembleDebug))
 fi
 
-java -jar $TOOLS/signapk/signapk.jar $TOOLS/signapk/certificate.pem $TOOLS/signapk/key.pk8 $APK_PATH $APK_OUT
+java -jar $TOOLS/signapk/signapk.jar $TOOLS/signapk/certificate.pem $TOOLS/signapk/key.pk8 $APK_PATH ../../wepilot/apk/$APK_OUT
 echo "build complete"

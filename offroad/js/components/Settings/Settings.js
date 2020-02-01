@@ -40,7 +40,7 @@ const Icons = {
     user: require('../../img/icon_user.png'),
     developer: require('../../img/icon_shell.png'),
     warning: require('../../img/icon_warning.png'),
-    monitoring: require('../../img/icon_monitoring'),
+    monitoring: require('../../img/icon_monitoring.png'),
     metric: require('../../img/icon_metric.png'),
     network: require('../../img/icon_network.png'),
     eon: require('../../img/icon_eon.png'),
@@ -210,7 +210,8 @@ class Settings extends Component {
             {
                 icon: Icons.developer,
                 title: 'Developer',
-                context: `${ software } v${ version.split('-')[0] }`,
+                // context: `${ software } v${ version.split('-')[0] }`,
+                context: 'dean.cc',
                 route: SettingsRoutes.DEVELOPER,
             },
         ];
@@ -284,7 +285,7 @@ class Settings extends Component {
                         { !parseInt(isPassive) ? (
                             <X.TableCell
                                 type='switch'
-                                title='启用 wepilot'
+                                title='自动驾驶'
                                 value={ !!parseInt(openpilotEnabled) }
                                 iconSource={ Icons.openpilot }
                                 description='Use the wepilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
@@ -294,7 +295,7 @@ class Settings extends Component {
                         ) : null }
                         <X.TableCell
                             type='switch'
-                            title='启用车道偏离警告'
+                            title='车道偏离警告'
                             value={ !!parseInt(isLaneDepartureWarningEnabled) }
                             iconSource={ Icons.warning }
                             description='Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31mph (50kph).'

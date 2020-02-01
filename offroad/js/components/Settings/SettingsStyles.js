@@ -32,7 +32,8 @@ export default StyleSheet.create({
     borderRightColor: 'rgba(233,233,233,.05)',
     display: 'flex',
     height: '100%',
-    width: '25%',
+    // width: '25%',
+    width: '33%',
   },
   settingsMenuItemBorderless: {
     borderRightWidth: 0,

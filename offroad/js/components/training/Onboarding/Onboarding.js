@@ -366,12 +366,12 @@ class Onboarding extends Component {
                     </View>
                     <View style={ Styles.onboardingStepPointBody }>
                         <X.Text size='bigger' color='white' weight='bold'>
-                            wepilot是一个高级辅助驾驶系统.
+                            wepilot是一个自动辅助驾驶系统.
                         </X.Text>
                         <X.Text
                             size='smallish' color='white' weight='light'
                             style={ Styles.onboardingStepContextSmall }>
-                            高级辅助驾驶系统并不是真正的无人驾驶系统，在wepilot替您驾驶车辆的过程中，您需要时刻保持关注并准备接管车辆的控制。
+                            自动驾驶并不是无人驾驶，在wepilot替您驾驶车辆的过程中，您需要时刻保持关注并做好接管车辆控制的准备。
                         </X.Text>
                         <X.CheckboxField
                             size='small'
@@ -597,7 +597,7 @@ class Onboarding extends Component {
                     size='small' color='ghost' textWeight='light'
                     style={ Styles.onboardingStepPointCrumb }
                     onPress={ () => this.handleEngageRadioPressed('index') }>
-                    openpilot engaging
+                    激活自动驾驶
                 </X.Button>
                 <X.Text size='medium' color='white' weight='bold'>
                     Engage openpilot
@@ -726,7 +726,7 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleLaneChangeRadioPressed('index') }>
-                        wepilot 控制
+                        控制
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
                         切换车道
@@ -734,8 +734,7 @@ class Onboarding extends Component {
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        With openpilot engaged, turn on your signal, check
-                        your surroundings, and confirm it is safe to change lanes.
+                        自动驾驶激活后，在确认安全的情况下，您可以通过朝对应的方向打转向灯，发出切换车道的指令。
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -743,7 +742,7 @@ class Onboarding extends Component {
                         <X.Text
                             size='small' color='white' weight='semibold'
                             style={ Styles.onboardingStepPointInstructionText }>
-                            Select turn signal
+                            点击右侧转向杆继续
                         </X.Text>
                         <X.Image
                             source={ require('../../../img/icon_chevron_right.png') }

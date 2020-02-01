@@ -25,5 +25,5 @@ else
   UNSIGNED_APK=app/build/outputs/apk/debug/app-debug.apk
 fi
 
-java -jar $TOOLS/signapk/signapk.jar $TOOLS/signapk/platform.x509.pem $TOOLS/signapk/platform.pk8 "$UNSIGNED_APK" "$APK_OUT"
+java -jar $TOOLS/signapk/signapk.jar $TOOLS/signapk/platform.x509.pem $TOOLS/signapk/platform.pk8 "$UNSIGNED_APK" ../../wepilot/apk/$APK_OUT
 
