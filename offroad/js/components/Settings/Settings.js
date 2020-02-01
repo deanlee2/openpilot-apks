@@ -40,6 +40,7 @@ const Icons = {
     user: require('../../img/icon_user.png'),
     developer: require('../../img/icon_shell.png'),
     warning: require('../../img/icon_warning.png'),
+    monitoring: require('../../img/icon_monitoring'),
     metric: require('../../img/icon_metric.png'),
     network: require('../../img/icon_network.png'),
     eon: require('../../img/icon_eon.png'),
@@ -259,6 +260,7 @@ class Settings extends Component {
                 OpenpilotEnabledToggle: openpilotEnabled,
                 Passive: isPassive,
                 IsLdwEnabled: isLaneDepartureWarningEnabled,
+                IsDriverMonitorEnabled: isDMEnabled,
             }
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -299,6 +301,15 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'ldw' }
                             handleExpanded={ () => this.handleExpanded('ldw') }
                             handleChanged={ this.props.setLaneDepartureWarningEnabled } />
+                        <X.TableCell
+                            type='switch'
+                            title='驾驶员监控'
+                            value={ !!parseInt(isDMEnabled) }
+                            iconSource={ Icons.monitoring }
+                            description='驾驶员监控通过三维人脸重建和姿态估计来检测驾驶员的感知。当驾驶员出现分心时，它会发出警告。这一功能仍处于测试阶段，所以当面部跟踪太不准确时(比如在晚上)，驾驶员监控是不可用的。可用性由左下角的face图标指示。'
+                            isExpanded={ expandedCell == 'driver_monitoring' }
+                            handleExpanded={ () => this.handleExpanded('driver_monitoring') }
+                            handleChanged={ this.props.setDriverMonitoringEnabled } />
                         <X.TableCell
                             type='switch'
                             title='Record and Upload Driver Camera'
@@ -864,6 +875,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setLaneDepartureWarningEnabled: (isLaneDepartureWarningEnabled) => {
         dispatch(updateParam(Params.KEY_LANE_DEPARTURE_WARNING_ENABLED, (isLaneDepartureWarningEnabled | 0).toString()));
+    },
+    setDriverMonitoringEnabled: (isDMEnabled) => {
+        dispatch(updateParam(Params.KEY_DRIVER_MONITOR_ENABLED, (isDMEnabled | 0).toString()));
     },
     deleteParam: (param) => {
         dispatch(deleteParam(param));

@@ -40,6 +40,7 @@ const PARAMS = [
   "PandaDongleId",
   "CommunityFeaturesToggle",
   "IsLdwEnabled",
+  "IsDriverMonitorEnabled",
 ].concat(ALERT_PARAMS);
 
 export function refreshParams(params) {
