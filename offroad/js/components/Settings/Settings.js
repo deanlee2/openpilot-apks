@@ -197,21 +197,21 @@ class Settings extends Component {
             // },
             {
                 icon: Icons.eon,
-                title: 'Device',
+                title: '设备',
                 context: `${ parseInt(freeSpace) + '%' } Free`,
                 route: SettingsRoutes.DEVICE,
             },
             {
                 icon: Icons.network,
-                title: 'Network',
+                title: '网络',
                 context: connectivity,
                 route: SettingsRoutes.NETWORK,
             },
             {
                 icon: Icons.developer,
-                title: 'Developer',
-                // context: `${ software } v${ version.split('-')[0] }`,
-                context: 'dean.cc',
+                title: '开发调试',
+                context: `${ software } v${ version.split('-')[0] }`,
+                // context: 'dean.cc',
                 route: SettingsRoutes.DEVELOPER,
             },
         ];
@@ -272,7 +272,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Settings'}
+                        {'<  设置'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -313,14 +313,16 @@ class Settings extends Component {
                             handleChanged={ this.props.setDriverMonitoringEnabled } />
                         <X.TableCell
                             type='switch'
-                            title='Record and Upload Driver Camera'
+                            // title='Record and Upload Driver Camera'
+                            title='上传摄像头数据'
                             value={ !!parseInt(recordFront) }
                             iconSource={ Icons.network }
-                            description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
+                            description='上传摄像头数据.'
+                            // description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
                             isExpanded={ expandedCell == 'record_front' }
                             handleExpanded={ () => this.handleExpanded('record_front') }
                             handleChanged={ this.props.setRecordFront } />
-                        <X.TableCell
+                        {/* * <X.TableCell
                             type='switch'
                             title='Use Metric System'
                             value={ !!parseInt(isMetric) }
@@ -328,8 +330,8 @@ class Settings extends Component {
                             description='Display speed in km/h instead of mp/h and temperature in °C instead of °F.'
                             isExpanded={ expandedCell == 'metric' }
                             handleExpanded={ () => this.handleExpanded('metric') }
-                            handleChanged={ this.props.setMetric } />
-                      </X.Table>
+                            handleChanged={ this.props.setMetric } /> */}
+                      </X.Table> 
                       {/*
                       <X.Table color='darkBlue'>
                         <X.TableCell
@@ -464,7 +466,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Device Settings'}
+                        {'<  设备设置'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -473,9 +475,10 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='custom'
-                            title='Camera Calibration'
+                            title='摄像头校准'
                             iconSource={ Icons.calibration }
-                            description='The calibration algorithm is always active on the road facing camera. Resetting calibration is only advised when the device reports an invalid calibration alert or when the device is remounted in a different position.'
+                            // description='The calibration algorithm is always active on the road facing camera. Resetting calibration is only advised when the device reports an invalid calibration alert or when the device is remounted in a different position.'
+                            description='提示需要重新校准时再使用该功能.'
                             isExpanded={ expandedCell == 'calibration' }
                             handleExpanded={ () => this.handleExpanded('calibration') }>
                             <X.Button
@@ -488,9 +491,9 @@ class Settings extends Component {
                         </X.TableCell>
                     </X.Table>
                     <X.Table>
-                        <X.TableCell
+                        {/* <X.TableCell
                             title='Paired'
-                            value={ isPaired ? 'Yes' : 'No' } />
+                            value={ isPaired ? 'Yes' : 'No' } /> */}
                         <X.TableCell
                             title='Dongle ID'
                             value={ dongleId } />
@@ -535,7 +538,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Network Settings'}
+                        {'<  网络设置'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -584,7 +587,7 @@ class Settings extends Component {
                         color='ghost'
                         size='small'
                         onPress={ () => this.handlePressedBack() }>
-                        {'<  Developer Settings'}
+                        {'<  开发调试设置'}
                     </X.Button>
                 </View>
                 <ScrollView
@@ -593,23 +596,27 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='switch'
-                            title='Enable Community Features'
+                            // title='Enable Community Features'
+                            title='启用测试版的功能'
                             value={ !!parseInt(communityFeatures) }
                             iconSource={ Icons.developer }
                             descriptionExtra={
-                              <X.Text color='white' size='tiny'>
-                                  Use features from the open source community that are not maintained or supported by comma.ai and have not been confirmed to meet the standard safety model. Be extra cautious when using these features:{'\n'}
-                                  * GM car port{'\n'}
-                                  * Toyota with DSU unplugged{'\n'}
-                                  * Pedal interceptor{'\n'}
+                            //   <X.Text color='white' size='tiny'>
+                            //       Use features from the open source community that are not maintained or supported by comma.ai and have not been confirmed to meet the standard safety model. Be extra cautious when using these features:{'\n'}
+                            //       * GM car port{'\n'}
+                            //       * Toyota with DSU unplugged{'\n'}
+                            //       * Pedal interceptor{'\n'}
+                            //   </X.Text>
+                            <X.Text color='white' size='tiny'>
+                                  使用测试中的功能，可能不稳定。
                               </X.Text>
                             }
                             isExpanded={ expandedCell == 'communityFeatures' }
                             handleExpanded={ () => this.handleExpanded('communityFeatures') }
                             handleChanged={ this.props.setCommunityFeatures } />
-                        <X.TableCell
+                        {/* <X.TableCell
                             type='switch'
-                            title='Enable SSH'
+                            title='enable SSH'
                             value={ isSshEnabled }
                             iconSource={ Icons.developer }
                             description='Allow devices to connect to your device using Secure Shell (SSH).'
@@ -630,7 +637,7 @@ class Settings extends Component {
                                 style={ { minWidth: '100%' } }>
                                 { expandedCell === 'ssh_keys' ? 'Cancel' : 'Edit' }
                             </X.Button>
-                        </X.TableCell>
+                        </X.TableCell> */}
                     </X.Table>
                     <X.Table spacing='none'>
                         <X.TableCell
