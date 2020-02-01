@@ -305,20 +305,24 @@ class MainActivity : Activity(), NewDestinationReceiverDelegate, OffroadNavigati
 
     fun updatePandaConnectionStatus() {
         if (pandaConnectionMonitor?.isConnected == false) {
-            sidebarMetricPanda?.text = "NO PANDA"
+            // sidebarMetricPanda?.text = "NO PANDA"
+            sidebarMetricPanda?.text = "未连接"
             sidebarMetricPandaEdge?.setColorFilter(colorRed!!);
             sidebarMetricPandaBorder!!.getBackground().setAlpha(255)
         } else {
             if (satelliteCount == -1) {
-              sidebarMetricPanda?.text = "PANDA ACTIVE"
+             // sidebarMetricPanda?.text = "PANDA ACTIVE"
+              sidebarMetricPanda?.text = "已连接"
               sidebarMetricPandaEdge?.setColorFilter(colorWhite!!);
               sidebarMetricPandaBorder!!.getBackground().setAlpha(76);
             } else if (satelliteCount < 6) {
-              sidebarMetricPanda?.text = "PANDA\nNO GPS"
+              // sidebarMetricPanda?.text = "PANDA\nNO GPS"
+              sidebarMetricPanda?.text = "已连接\n无gps"
               sidebarMetricPandaEdge?.setColorFilter(colorYellow!!);
               sidebarMetricPandaBorder!!.getBackground().setAlpha(255);
             } else if (satelliteCount >= 6) {
-              sidebarMetricPanda?.text = "PANDA GOOD GPS"
+              // sidebarMetricPanda?.text = "PANDA GOOD GPS"
+              sidebarMetricPanda?.text = "已连接 GPS"
               sidebarMetricPandaEdge?.setColorFilter(colorWhite!!);
               sidebarMetricPandaBorder!!.getBackground().setAlpha(76);
             }

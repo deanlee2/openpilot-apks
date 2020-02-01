@@ -734,7 +734,9 @@ class Onboarding extends Component {
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        自动驾驶激活后，在确认安全的情况下，您可以通过朝对应的方向打转向灯，发出切换车道的指令。
+                        {/* With openpilot engaged, turn on your signal, check
+                        your surroundings, and confirm it is safe to change lanes. */}
+                        自动驾驶激活后，您可以通过朝对应的方向打转向灯，来发出切换车道的指令。
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -742,7 +744,8 @@ class Onboarding extends Component {
                         <X.Text
                             size='small' color='white' weight='semibold'
                             style={ Styles.onboardingStepPointInstructionText }>
-                            点击右侧转向杆继续
+                            {/* Select turn signal */}
+                            点击转向拨杆
                         </X.Text>
                         <X.Image
                             source={ require('../../../img/icon_chevron_right.png') }
@@ -815,13 +818,15 @@ class Onboarding extends Component {
                 </View>
                 <View style={ Styles.onboardingStepPointBody }>
                     <X.Text size='bigger' color='white' weight='bold'>
-                        openpilot will stop driving when a pedal is pressed.
+                        踩任意踏板退出自动驾驶
+                        {/* openpilot will stop driving when a pedal is pressed. */}
                     </X.Text>
                     <X.Text
                         size='smallish' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmall }>
-                        When encountering a potentially unsafe situation or
-                        exiting a highway, you can disengage with any pedal.
+                        自动驾驶过程中，您可以通过踩刹车或油门踏板，随时中断自动驾驶并接管控制。    
+                        {/* When encountering a potentially unsafe situation or
+                        exiting a highway, you can disengage with any pedal. */}
                     </X.Text>
                     <X.RadioField
                         size='big'
@@ -829,7 +834,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('limitations') }
                         hasAppend={ true }
                         onPress={ () => this.handleDisengageRadioPressed('limitations') }
-                        label='Limited Features' />
+                        label='受限制的功能' />
                     <X.RadioField
                         size='big'
                         color='white'
@@ -837,7 +842,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('disengage') }
                         hasAppend={ true }
                         onPress={ () => this.handleDisengageRadioPressed('disengage') }
-                        label='Perform Lane Change' />
+                        label='切换车道' />
                 </View>
             </View>
         )
