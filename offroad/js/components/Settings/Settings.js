@@ -23,7 +23,8 @@ import {
     deleteParam,
     updateParam,
     refreshParams,
-d} from '../../store/params/actions';
+    d
+} from '../../store/params/actions';
 
 import X from '../../themes';
 import Styles from './SettingsStyles';
@@ -125,7 +126,7 @@ class Settings extends Component {
         this.props.deleteParam(Params.KEY_CALIBRATION_PARAMS);
         this.setState({ calibration: null });
         Alert.alert('Reboot', 'Resetting calibration requires a reboot.', [
-            { text: 'Later', onPress: () => {}, style: 'cancel' },
+            { text: 'Later', onPress: () => { }, style: 'cancel' },
             { text: 'Reboot Now', onPress: () => ChffrPlus.reboot() },
         ]);
     }
@@ -198,7 +199,7 @@ class Settings extends Component {
             {
                 icon: Icons.eon,
                 title: '设备',
-                context: `${ parseInt(freeSpace) + '%' } Free`,
+                context: `${parseInt(freeSpace) + '%'} Free`,
                 route: SettingsRoutes.DEVICE,
             },
             {
@@ -210,39 +211,39 @@ class Settings extends Component {
             {
                 icon: Icons.developer,
                 title: '开发调试',
-                context: `${ software } v${ version.split('-')[0] }`,
+                context: `${software} v${version.split('-')[0]}`,
                 // context: 'dean.cc',
                 route: SettingsRoutes.DEVELOPER,
             },
         ];
         return settingsMenuItems.map((item, idx) => {
             const cellButtonStyle = [
-              Styles.settingsMenuItem,
-              idx == 3 ? Styles.settingsMenuItemBorderless : null,
+                Styles.settingsMenuItem,
+                idx == 3 ? Styles.settingsMenuItemBorderless : null,
             ]
             return (
-                <View key={ idx } style={ cellButtonStyle }>
+                <View key={idx} style={cellButtonStyle}>
                     <X.Button
                         color='transparent'
                         size='full'
-                        style={ Styles.settingsMenuItemButton }
-                        onPress={ () => this.handleNavigatedFromMenu(item.route) }>
+                        style={Styles.settingsMenuItemButton}
+                        onPress={() => this.handleNavigatedFromMenu(item.route)}>
                         <X.Image
-                            source={ item.icon }
-                            style={ Styles.settingsMenuItemIcon } />
+                            source={item.icon}
+                            style={Styles.settingsMenuItemIcon} />
                         <X.Text
                             color='white'
                             size='small'
                             weight='semibold'
-                            style={ Styles.settingsMenuItemTitle }>
-                            { item.title }
+                            style={Styles.settingsMenuItemTitle}>
+                            {item.title}
                         </X.Text>
                         <X.Text
                             color='white'
                             size='tiny'
                             weight='light'
-                            style={ Styles.settingsMenuItemContext }>
-                            { item.context }
+                            style={Styles.settingsMenuItemContext}>
+                            {item.context}
                         </X.Text>
                     </X.Button>
                 </View>
@@ -266,62 +267,62 @@ class Settings extends Component {
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
         return (
-            <View style={ Styles.settings }>
-                <View style={ Styles.settingsHeader }>
+            <View style={Styles.settings}>
+                <View style={Styles.settingsHeader}>
                     <X.Button
                         color='ghost'
                         size='small'
-                        onPress={ () => this.handlePressedBack() }>
+                        onPress={() => this.handlePressedBack()}>
                         {'<  设置'}
                     </X.Button>
                 </View>
                 <ScrollView
                     ref="settingsScrollView"
-                    style={ Styles.settingsWindow }>
+                    style={Styles.settingsWindow}>
                     <X.Table direction='row' color='darkBlue'>
-                        { this.renderSettingsMenu() }
+                        {this.renderSettingsMenu()}
                     </X.Table>
                     <X.Table color='darkBlue'>
-                        { !parseInt(isPassive) ? (
+                        {!parseInt(isPassive) ? (
                             <X.TableCell
                                 type='switch'
                                 title='自动驾驶'
-                                value={ !!parseInt(openpilotEnabled) }
-                                iconSource={ Icons.openpilot }
+                                value={!!parseInt(openpilotEnabled)}
+                                iconSource={Icons.openpilot}
                                 description='Use the wepilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
-                                isExpanded={ expandedCell == 'openpilot_enabled' }
-                                handleExpanded={ () => this.handleExpanded('openpilot_enabled') }
-                                handleChanged={ this.props.setOpenpilotEnabled } />
-                        ) : null }
+                                isExpanded={expandedCell == 'openpilot_enabled'}
+                                handleExpanded={() => this.handleExpanded('openpilot_enabled')}
+                                handleChanged={this.props.setOpenpilotEnabled} />
+                        ) : null}
                         <X.TableCell
                             type='switch'
                             title='车道偏离警告'
-                            value={ !!parseInt(isLaneDepartureWarningEnabled) }
-                            iconSource={ Icons.warning }
+                            value={!!parseInt(isLaneDepartureWarningEnabled)}
+                            iconSource={Icons.warning}
                             description='Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31mph (50kph).'
-                            isExpanded={ expandedCell == 'ldw' }
-                            handleExpanded={ () => this.handleExpanded('ldw') }
-                            handleChanged={ this.props.setLaneDepartureWarningEnabled } />
+                            isExpanded={expandedCell == 'ldw'}
+                            handleExpanded={() => this.handleExpanded('ldw')}
+                            handleChanged={this.props.setLaneDepartureWarningEnabled} />
                         <X.TableCell
                             type='switch'
                             title='驾驶员监控'
-                            value={ !!parseInt(isDMEnabled) }
-                            iconSource={ Icons.monitoring }
+                            value={!!parseInt(isDMEnabled)}
+                            iconSource={Icons.monitoring}
                             description='驾驶员监控通过三维人脸重建和姿态估计来检测驾驶员的感知。当驾驶员出现分心时，它会发出警告。这一功能仍处于测试阶段，所以当面部跟踪太不准确时(比如在晚上)，驾驶员监控是不可用的。可用性由左下角的face图标指示。'
-                            isExpanded={ expandedCell == 'driver_monitoring' }
-                            handleExpanded={ () => this.handleExpanded('driver_monitoring') }
-                            handleChanged={ this.props.setDriverMonitoringEnabled } />
+                            isExpanded={expandedCell == 'driver_monitoring'}
+                            handleExpanded={() => this.handleExpanded('driver_monitoring')}
+                            handleChanged={this.props.setDriverMonitoringEnabled} />
                         <X.TableCell
                             type='switch'
                             // title='Record and Upload Driver Camera'
                             title='上传摄像头数据'
-                            value={ !!parseInt(recordFront) }
-                            iconSource={ Icons.network }
+                            value={!!parseInt(recordFront)}
+                            iconSource={Icons.network}
                             description='上传摄像头数据.'
                             // description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
-                            isExpanded={ expandedCell == 'record_front' }
-                            handleExpanded={ () => this.handleExpanded('record_front') }
-                            handleChanged={ this.props.setRecordFront } />
+                            isExpanded={expandedCell == 'record_front'}
+                            handleExpanded={() => this.handleExpanded('record_front')}
+                            handleChanged={this.props.setRecordFront} />
                         {/* * <X.TableCell
                             type='switch'
                             title='Use Metric System'
@@ -331,8 +332,8 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'metric' }
                             handleExpanded={ () => this.handleExpanded('metric') }
                             handleChanged={ this.props.setMetric } /> */}
-                      </X.Table> 
-                      {/*
+                    </X.Table>
+                    {/*
                       <X.Table color='darkBlue'>
                         <X.TableCell
                             type='custom'
@@ -383,7 +384,7 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.Button
                             color='settingsDefault'
-                            onPress={ () => this.props.openTrainingGuide() }>
+                            onPress={() => this.props.openTrainingGuide()}>
                             阅读说明
                         </X.Button>
                     </X.Table>
@@ -396,30 +397,30 @@ class Settings extends Component {
         const { isPaired } = this.props;
         const { expandedCell } = this.state;
         return (
-            <View style={ Styles.settings }>
-                <View style={ Styles.settingsHeader }>
+            <View style={Styles.settings}>
+                <View style={Styles.settingsHeader}>
                     <X.Button
                         color='ghost'
                         size='small'
-                        onPress={ () => this.handlePressedBack() }>
+                        onPress={() => this.handlePressedBack()}>
                         {'<  Account Settings'}
                     </X.Button>
                 </View>
                 <ScrollView
                     ref="settingsScrollView"
-                    style={ Styles.settingsWindow }>
+                    style={Styles.settingsWindow}>
                     <View>
                         <X.Table>
                             <X.TableCell
                                 title='Device Paired'
-                                value={ isPaired ? 'Yes' : 'No' } />
-                            { isPaired ? (
+                                value={isPaired ? 'Yes' : 'No'} />
+                            {isPaired ? (
                                 <X.Text
                                     color='white'
                                     size='tiny'>
                                     You may unpair your device in the comma connect app settings.
                                 </X.Text>
-                            ) : null }
+                            ) : null}
                             <X.Line color='light' />
                             <X.Text
                                 color='white'
@@ -427,16 +428,16 @@ class Settings extends Component {
                                 Terms of Service available at {'https://my.comma.ai/terms.html'}
                             </X.Text>
                         </X.Table>
-                        { isPaired ? null : (
+                        {isPaired ? null : (
                             <X.Table color='darkBlue' padding='big'>
                                 <X.Button
                                     color='settingsDefault'
                                     size='small'
-                                    onPress={ this.props.openPairing }>
+                                    onPress={this.props.openPairing}>
                                     Pair Device
                                 </X.Button>
                             </X.Table>
-                        ) }
+                        )}
                     </View>
                 </ScrollView>
             </View>
@@ -460,32 +461,32 @@ class Settings extends Component {
         } = this.props;
         const software = !!parseInt(isPassive) ? 'chffrplus' : 'wepilot';
         return (
-            <View style={ Styles.settings }>
-                <View style={ Styles.settingsHeader }>
+            <View style={Styles.settings}>
+                <View style={Styles.settingsHeader}>
                     <X.Button
                         color='ghost'
                         size='small'
-                        onPress={ () => this.handlePressedBack() }>
+                        onPress={() => this.handlePressedBack()}>
                         {'<  设备设置'}
                     </X.Button>
                 </View>
                 <ScrollView
                     ref="settingsScrollView"
-                    style={ Styles.settingsWindow }>
+                    style={Styles.settingsWindow}>
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='custom'
                             title='摄像头校准'
-                            iconSource={ Icons.calibration }
+                            iconSource={Icons.calibration}
                             // description='The calibration algorithm is always active on the road facing camera. Resetting calibration is only advised when the device reports an invalid calibration alert or when the device is remounted in a different position.'
                             description='提示需要重新校准时再使用该功能.'
-                            isExpanded={ expandedCell == 'calibration' }
-                            handleExpanded={ () => this.handleExpanded('calibration') }>
+                            isExpanded={expandedCell == 'calibration'}
+                            handleExpanded={() => this.handleExpanded('calibration')}>
                             <X.Button
                                 size='tiny'
                                 color='settingsDefault'
-                                onPress={ this.handlePressedResetCalibration  }
-                                style={ { minWidth: '100%' } }>
+                                onPress={this.handlePressedResetCalibration}
+                                style={{ minWidth: '100%' }}>
                                 Reset
                             </X.Button>
                         </X.TableCell>
@@ -496,31 +497,31 @@ class Settings extends Component {
                             value={ isPaired ? 'Yes' : 'No' } /> */}
                         <X.TableCell
                             title='Dongle ID'
-                            value={ dongleId } />
+                            value={dongleId} />
                         <X.TableCell
                             title='Serial Number'
-                            value={ serialNumber } />
+                            value={serialNumber} />
                         <X.TableCell
                             title='Free Storage'
-                            value={ parseInt(freeSpace) + '%' }
-                             />
+                            value={parseInt(freeSpace) + '%'}
+                        />
                         <X.TableCell
                             title='Upload Speed'
-                            value={ txSpeedKbps + ' kbps' }
-                             />
+                            value={txSpeedKbps + ' kbps'}
+                        />
                     </X.Table>
                     <X.Table color='darkBlue'>
                         <X.Button
                             size='small'
                             color='settingsDefault'
-                            onPress={ () => this.props.reboot() }>
+                            onPress={() => this.props.reboot()}>
                             Reboot
                         </X.Button>
                         <X.Line color='transparent' size='tiny' spacing='mini' />
                         <X.Button
                             size='small'
                             color='settingsDefault'
-                            onPress={ () => this.props.shutdown() }>
+                            onPress={() => this.props.shutdown()}>
                             Power Off
                         </X.Button>
                     </X.Table>
@@ -532,31 +533,31 @@ class Settings extends Component {
     renderNetworkSettings() {
         const { expandedCell } = this.state;
         return (
-            <View style={ Styles.settings }>
-                <View style={ Styles.settingsHeader }>
+            <View style={Styles.settings}>
+                <View style={Styles.settingsHeader}>
                     <X.Button
                         color='ghost'
                         size='small'
-                        onPress={ () => this.handlePressedBack() }>
+                        onPress={() => this.handlePressedBack()}>
                         {'<  网络设置'}
                     </X.Button>
                 </View>
                 <ScrollView
                     ref="settingsScrollView"
-                    style={ Styles.settingsWindow }>
+                    style={Styles.settingsWindow}>
                     <X.Line color='transparent' spacing='tiny' />
                     <X.Table spacing='big' color='darkBlue'>
                         <X.Button
                             size='small'
                             color='settingsDefault'
-                            onPress={ this.props.openWifiSettings }>
+                            onPress={this.props.openWifiSettings}>
                             Open WiFi Settings
                         </X.Button>
                         <X.Line color='transparent' size='tiny' spacing='mini' />
                         <X.Button
                             size='small'
                             color='settingsDefault'
-                            onPress={ () => ChffrPlus.openTetheringSettings() }>
+                            onPress={() => ChffrPlus.openTetheringSettings()}>
                             Open Tethering Settings
                         </X.Button>
                     </X.Table>
@@ -576,44 +577,54 @@ class Settings extends Component {
                 PandaFirmwareHex: pandaFirmwareHex,
                 PandaDongleId: pandaDongleId,
                 CommunityFeaturesToggle: communityFeatures,
+                WepilotIsSimpleModel: isSimpleModel,
             },
         } = this.props;
         const { expandedCell } = this.state;
         const software = !!parseInt(isPassive) ? 'chffrplus' : 'wepilot';
         return (
-            <View style={ Styles.settings }>
-                <View style={ Styles.settingsHeader }>
+            <View style={Styles.settings}>
+                <View style={Styles.settingsHeader}>
                     <X.Button
                         color='ghost'
                         size='small'
-                        onPress={ () => this.handlePressedBack() }>
+                        onPress={() => this.handlePressedBack()}>
                         {'<  开发调试设置'}
                     </X.Button>
                 </View>
                 <ScrollView
                     ref="settingsScrollView"
-                    style={ Styles.settingsWindow }>
+                    style={Styles.settingsWindow}>
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='switch'
                             // title='Enable Community Features'
                             title='启用测试版的功能'
-                            value={ !!parseInt(communityFeatures) }
-                            iconSource={ Icons.developer }
+                            value={!!parseInt(communityFeatures)}
+                            iconSource={Icons.developer}
                             descriptionExtra={
-                            //   <X.Text color='white' size='tiny'>
-                            //       Use features from the open source community that are not maintained or supported by comma.ai and have not been confirmed to meet the standard safety model. Be extra cautious when using these features:{'\n'}
-                            //       * GM car port{'\n'}
-                            //       * Toyota with DSU unplugged{'\n'}
-                            //       * Pedal interceptor{'\n'}
-                            //   </X.Text>
-                            <X.Text color='white' size='tiny'>
-                                  使用测试中的功能，可能不稳定。
+                                //   <X.Text color='white' size='tiny'>
+                                //       Use features from the open source community that are not maintained or supported by comma.ai and have not been confirmed to meet the standard safety model. Be extra cautious when using these features:{'\n'}
+                                //       * GM car port{'\n'}
+                                //       * Toyota with DSU unplugged{'\n'}
+                                //       * Pedal interceptor{'\n'}
+                                //   </X.Text>
+                                <X.Text color='white' size='tiny'>
+                                    使用测试中的功能，可能不稳定。
                               </X.Text>
                             }
-                            isExpanded={ expandedCell == 'communityFeatures' }
-                            handleExpanded={ () => this.handleExpanded('communityFeatures') }
-                            handleChanged={ this.props.setCommunityFeatures } />
+                            isExpanded={expandedCell == 'communityFeatures'}
+                            handleExpanded={() => this.handleExpanded('communityFeatures')}
+                            handleChanged={this.props.setCommunityFeatures} />
+                            <X.TableCell
+                            type='switch'
+                            title='simple model'
+                            value={ !!parseInt(isSimpleModel) }
+                            iconSource={ Icons.developer }
+                            description='simple mode'
+                            isExpanded={ expandedCell == 'simple_mode' }
+                            handleExpanded={ () => this.handleExpanded('simple_mode') }
+                            handleChanged={ this.props.setWepilotSimpleMode } />
                         {/* <X.TableCell
                             type='switch'
                             title='enable SSH'
@@ -642,7 +653,7 @@ class Settings extends Component {
                     <X.Table spacing='none'>
                         <X.TableCell
                             title='Version'
-                            value={ `${ software } v${ version }` } />
+                            value={`${software} v${version}`} />
                         {/* <X.TableCell
                             title='Git Branch'
                             value={ gitBranch } />
@@ -652,19 +663,19 @@ class Settings extends Component {
                             valueTextSize='tiny' /> */}
                         <X.TableCell
                             title='Panda Firmware'
-                            value={ pandaFirmwareHex != null ? pandaFirmwareHex : 'N/A' }
+                            value={pandaFirmwareHex != null ? pandaFirmwareHex : 'N/A'}
                             valueTextSize='tiny' />
                         <X.TableCell
                             title='Panda Dongle ID'
-                            value={ (pandaDongleId != null && pandaDongleId != "unprovisioned") ? pandaDongleId : 'N/A' }
+                            value={(pandaDongleId != null && pandaDongleId != "unprovisioned") ? pandaDongleId : 'N/A'}
                             valueTextSize='tiny' />
                     </X.Table>
                     <X.Table color='darkBlue' padding='big'>
                         <X.Button
                             color='settingsDefault'
                             size='small'
-                            onPress={ this.props.uninstall }>
-                            { `Uninstall ${ software }` }
+                            onPress={this.props.uninstall}>
+                            {`Uninstall ${software}`}
                         </X.Button>
                     </X.Table>
                 </ScrollView>
@@ -690,19 +701,19 @@ class Settings extends Component {
                     A comma employee will never ask you to add their GitHub.
                     {'\n'}
                 </X.Text>
-                <View style={ Styles.githubUsernameInputContainer }>
+                <View style={Styles.githubUsernameInputContainer}>
                     <X.Text
                         color='white'
                         weight='semibold'
                         size='small'
-                        style={ Styles.githubUsernameInputLabel }>
+                        style={Styles.githubUsernameInputLabel}>
                         GitHub Username
                     </X.Text>
                     <TextInput
-                        style={ Styles.githubUsernameInput }
-                        onChangeText={ (text) => this.setState({ githubUsername: text, authKeysUpdateState: null })}
-                        value={ githubUsername }
-                        ref={ ref => this.githubInput = ref }
+                        style={Styles.githubUsernameInput}
+                        onChangeText={(text) => this.setState({ githubUsername: text, authKeysUpdateState: null })}
+                        value={githubUsername}
+                        ref={ref => this.githubInput = ref}
                         underlineColorAndroid='transparent'
                     />
                 </View>
@@ -710,32 +721,32 @@ class Settings extends Component {
                     <X.Button
                         size='tiny'
                         color='settingsDefault'
-                        isDisabled={ !githubUsernameIsValid }
-                        onPress={ this.writeSshKeys }
-                        style={ Styles.githubUsernameSaveButton }>
-                        <X.Text color='white' size='small' style={ Styles.githubUsernameInputSave }>Save</X.Text>
+                        isDisabled={!githubUsernameIsValid}
+                        onPress={this.writeSshKeys}
+                        style={Styles.githubUsernameSaveButton}>
+                        <X.Text color='white' size='small' style={Styles.githubUsernameInputSave}>Save</X.Text>
                     </X.Button>
-                    { authKeysUpdateState !== null &&
-                        <View style={ Styles.githubUsernameInputStatus }>
-                            { authKeysUpdateState === 'inflight' &&
+                    {authKeysUpdateState !== null &&
+                        <View style={Styles.githubUsernameInputStatus}>
+                            {authKeysUpdateState === 'inflight' &&
                                 <ActivityIndicator
                                     color='white'
-                                    refreshing={ true }
-                                    size={ 37 }
-                                    style={ Styles.connectingIndicator } />
+                                    refreshing={true}
+                                    size={37}
+                                    style={Styles.connectingIndicator} />
                             }
-                            { authKeysUpdateState === 'failed' &&
+                            {authKeysUpdateState === 'failed' &&
                                 <X.Text color='white' size='tiny'>Save failed. Ensure that your username is correct and you are connected to the internet.</X.Text>
                             }
                         </View>
                     }
-                    <View style={ Styles.githubSshKeyClearContainer }>
+                    <View style={Styles.githubSshKeyClearContainer}>
                         <X.Button
                             size='tiny'
                             color='settingsDefault'
-                            onPress={ this.clearSshKeys }
-                            style={ Styles.githubUsernameSaveButton }>
-                            <X.Text color='white' size='small' style={ Styles.githubUsernameInputSave }>Remove all</X.Text>
+                            onPress={this.clearSshKeys}
+                            style={Styles.githubUsernameSaveButton}>
+                            <X.Text color='white' size='small' style={Styles.githubUsernameInputSave}>Remove all</X.Text>
                         </X.Button>
                     </View>
                 </View>
@@ -765,7 +776,7 @@ class Settings extends Component {
 
             await ChffrPlus.writeParam(Params.KEY_GITHUB_SSH_KEYS, githubKeys);
             this.toggleExpandGithubInput();
-        } catch(err) {
+        } catch (err) {
             console.log(err);
             this.setState({ authKeysUpdateState: 'failed' });
         }
@@ -790,7 +801,7 @@ class Settings extends Component {
     render() {
         return (
             <X.Gradient color='dark_blue'>
-                { this.renderSettingsByRoute() }
+                {this.renderSettingsByRoute()}
             </X.Gradient>
         )
     }
@@ -823,19 +834,19 @@ const mapDispatchToProps = dispatch => ({
     },
     reboot: () => {
         Alert.alert('Reboot', 'Are you sure you want to reboot?', [
-            { text: 'Cancel', onPress: () => {}, style: 'cancel' },
+            { text: 'Cancel', onPress: () => { }, style: 'cancel' },
             { text: 'Reboot', onPress: () => ChffrPlus.reboot() },
         ]);
     },
     shutdown: () => {
         Alert.alert('Power Off', 'Are you sure you want to shutdown?', [
-            { text: 'Cancel', onPress: () => {}, style: 'cancel' },
+            { text: 'Cancel', onPress: () => { }, style: 'cancel' },
             { text: 'Shutdown', onPress: () => ChffrPlus.shutdown() },
         ]);
     },
     uninstall: () => {
         Alert.alert('Uninstall', 'Are you sure you want to uninstall?', [
-            { text: 'Cancel', onPress: () => {}, style: 'cancel' },
+            { text: 'Cancel', onPress: () => { }, style: 'cancel' },
             { text: 'Uninstall', onPress: () => ChffrPlus.writeParam(Params.KEY_DO_UNINSTALL, "1") },
         ]);
     },
@@ -872,10 +883,12 @@ const mapDispatchToProps = dispatch => ({
     setCommunityFeatures: (communityFeatures) => {
         if (communityFeatures == 1) {
             Alert.alert('Enable Community Features', 'Community maintained features are not confirmed by comma.ai to meet the standard safety model. Be extra cautious using them.', [
-                { text: 'Cancel', onPress: () => {}, style: 'cancel' },
-                { text: 'Enable', onPress: () => {
-                    dispatch(updateParam(Params.KEY_COMMUNITY_FEATURES, (communityFeatures | 0).toString()));
-                } },
+                { text: 'Cancel', onPress: () => { }, style: 'cancel' },
+                {
+                    text: 'Enable', onPress: () => {
+                        dispatch(updateParam(Params.KEY_COMMUNITY_FEATURES, (communityFeatures | 0).toString()));
+                    }
+                },
             ]);
         } else {
             dispatch(updateParam(Params.KEY_COMMUNITY_FEATURES, (communityFeatures | 0).toString()));
@@ -886,6 +899,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setDriverMonitoringEnabled: (isDMEnabled) => {
         dispatch(updateParam(Params.KEY_DRIVER_MONITOR_ENABLED, (isDMEnabled | 0).toString()));
+    },
+    setWepilotSimpleMode: (isSimpleModel) => {
+        dispatch(updateParam(Params.KEY_WEPILOT_SIMPLE_MODEL, (isSimpleModel | 0).toString()));
     },
     deleteParam: (param) => {
         dispatch(deleteParam(param));

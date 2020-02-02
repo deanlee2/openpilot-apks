@@ -41,6 +41,7 @@ const PARAMS = [
   "CommunityFeaturesToggle",
   "IsLdwEnabled",
   "IsDriverMonitorEnabled",
+  "WepilotIsSimpleModel",
 ].concat(ALERT_PARAMS);
 
 export function refreshParams(params) {
