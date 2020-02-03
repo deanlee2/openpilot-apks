@@ -289,7 +289,8 @@ class Settings extends Component {
                                 title='自动驾驶'
                                 value={!!parseInt(openpilotEnabled)}
                                 iconSource={Icons.openpilot}
-                                description='Use the wepilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
+                                // description='Use the wepilot system for adaptive cruise control and lane keep driver assistance. Your attention is required at all times to use this feature. Changing this setting takes effect when the car is powered off.'
+                                description='使用wepilot为您自动驾驶车辆. 您需要时刻关注路况.该设置在车辆熄火时有效。'
                                 isExpanded={expandedCell == 'openpilot_enabled'}
                                 handleExpanded={() => this.handleExpanded('openpilot_enabled')}
                                 handleChanged={this.props.setOpenpilotEnabled} />
@@ -299,7 +300,8 @@ class Settings extends Component {
                             title='车道偏离警告'
                             value={!!parseInt(isLaneDepartureWarningEnabled)}
                             iconSource={Icons.warning}
-                            description='Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31mph (50kph).'
+                            // description='Receive alerts to steer back into the lane when your vehicle drifts over a detected lane line without a turn signal activated while driving over 31mph (50kph).'
+                            description='车速超过50公里后，如果车辆偏离车道，将发出报警.'
                             isExpanded={expandedCell == 'ldw'}
                             handleExpanded={() => this.handleExpanded('ldw')}
                             handleChanged={this.props.setLaneDepartureWarningEnabled} />
