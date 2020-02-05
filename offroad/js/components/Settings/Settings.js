@@ -211,8 +211,8 @@ class Settings extends Component {
             {
                 icon: Icons.developer,
                 title: '开发调试',
-                context: `${software} v${version.split('-')[0]}`,
-                // context: 'dean.cc',
+                // context: `${software} v${version.split('-')[0]}`,
+                context: 'dean',
                 route: SettingsRoutes.DEVELOPER,
             },
         ];
