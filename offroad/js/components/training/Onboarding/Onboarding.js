@@ -455,22 +455,26 @@ class Onboarding extends Component {
                     size='small' color='ghost' textWeight='light'
                     style={ Styles.onboardingStepPointCrumb }
                     onPress={ () => this.handleSensorRadioPressed('index') }>
-                    openpilot sensors
+                    {/* openpilot sensors */}
+                    wepilot传感器
                 </X.Button>
                 <X.Text size='medium' color='white' weight='bold'>
-                    Camera from Device
+                    {/* Camera from Device */}
+                    摄像头
                 </X.Text>
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                    A vision algorithm leverages the road-facing
-                    camera to determine the path to drive.
+                    使用深度学习算法分析前方路况，作为自动驾驶系统决策的依据
+                    {/* A vision algorithm leverages the road-facing
+                    camera to determine the path to drive. */}
                 </X.Text>
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                    The lane lines are drawn with varying widths to
-                    reflect the confidence in finding your lane.
+                        绘制的车道线宽度反应了当前车道的侵袭度。
+                    {/* The lane lines are drawn with varying widths to
+                    reflect the confidence in finding your lane. */}
                 </X.Text>
                 <X.Button color='ghost'
                     style={ Styles.onboardingStepPointInstruction }
@@ -478,7 +482,8 @@ class Onboarding extends Component {
                     <X.Text
                         size='small' color='white' weight='semibold'
                         style={ Styles.onboardingStepPointInstructionText }>
-                        Select path to continue
+                        {/* Select path to continue */}
+                        点击车道线继续
                     </X.Text>
                     <X.Image
                       source={ require('../../../img/icon_chevron_right.png') }
@@ -498,22 +503,26 @@ class Onboarding extends Component {
                     size='small' color='ghost' textWeight='light'
                     style={ Styles.onboardingStepPointCrumb }
                     onPress={ () => this.handleSensorRadioPressed('index') }>
-                    openpilot sensors
+                    {/* openpilot sensors */}
+                    wepilot 传感器
                 </X.Button>
                 <X.Text size='medium' color='white' weight='bold'>
-                    Radar from your car
+                    {/* Radar from your car */}
+                    毫米波雷达
                 </X.Text>
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                    The stock radar in your car helps openpilot measure
-                    the lead car distance for longitudinal control.
+                    毫米波雷达用于测量前方车辆，障碍物的距离。
+                    {/* The stock radar in your car helps openpilot measure
+                    the lead car distance for longitudinal control. */}
                 </X.Text>
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
                     The indicator is drawn either red or yellow to
                     illustrate relative speed to the lead car.
+                    
                 </X.Text>
                 <X.Button color='ghost'
                     style={ Styles.onboardingStepPointInstruction }
@@ -600,7 +609,7 @@ class Onboarding extends Component {
                     激活自动驾驶
                 </X.Button>
                 <X.Text size='medium' color='white' weight='bold'>
-                    Engage openpilot
+                    Engage wepilot
                 </X.Text>
                 <X.Text
                     size='small' color='white' weight='light'
@@ -636,7 +645,7 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleEngageRadioPressed('index') }>
-                        openpilot engaging
+                        wepilot engaging
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
                         Driver Monitoring
@@ -644,10 +653,10 @@ class Onboarding extends Component {
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        When openpilot is engaged, you must always pay attention!
-                        openpilot monitors awareness with 3D facial reconstruction
+                        When wepilot is engaged, you must always pay attention!
+                        wepilot monitors awareness with 3D facial reconstruction
                         and pose. Distracted drivers are alerted, then disengaged
-                        from openpilot until corrected.
+                        from wepilot until corrected.
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -767,7 +776,7 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleLaneChangeRadioPressed('index') }>
-                        openpilot lane changes
+                        we lane changes
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
                         Perform Lane Change
@@ -778,7 +787,7 @@ class Onboarding extends Component {
                         Continuously observe your surroundings for safety while
                         gently nudging the steering wheel towards your desired
                         lane. The combination of turn signal and wheel nudge
-                        will prompt openpilot to change lanes.
+                        will prompt wepilot to change lanes.
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -859,7 +868,7 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleDisengageRadioPressed('index') }>
-                        openpilot disengaging
+                        wepilot disengaging
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
                         Limited Features
@@ -868,9 +877,9 @@ class Onboarding extends Component {
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
                         Keep in mind that certain situations are not handled by
-                        openpilot. Scenarios such as traffic lights, stop signs,
+                        wepilot. Scenarios such as traffic lights, stop signs,
                         quick vehicle cutins and pedestrians are unrecognized
-                        and openpilot may accelerate.
+                        and wepilot may accelerate.
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -903,14 +912,14 @@ class Onboarding extends Component {
                         openpilot disengaging
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
-                        Disengage openpilot
+                        Disengage wepilot
                     </X.Text>
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        While openpilot is engaged, you may keep your hands
+                        While wepilot is engaged, you may keep your hands
                         on the wheel to override lateral controls. Longitudinal
-                        controls will be managed by openpilot until the gas
+                        controls will be managed by wepilot until the gas
                         or brake pedal is pressed to disengage.
                     </X.Text>
                     <X.Button color='ghost'
@@ -960,13 +969,13 @@ class Onboarding extends Component {
                 <X.Text
                     size='jumbo' color='white' weight='bold'
                     style={ Styles.onboardingStepHeader }>
-                    Congratulations! You have completed openpilot training.
+                    Congratulations! You have completed wepilot training.
                 </X.Text>
                 <X.Text
                     color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
                     This guide can be replayed at any time from the
-                    device settings. To learn more about openpilot, read the
+                    device settings. To learn more about wepilot, read the
                     wiki and join the community at discord.comma.ai
                 </X.Text>
                 <X.Line color='transparent' spacing='small' />
