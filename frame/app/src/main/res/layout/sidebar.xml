@@ -104,7 +104,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="26dp"
-                    android:text="STORAGE"
+                    android:text="存储空间"
                     android:textColor="#ffffff"
                     android:textSize="12sp" />
             </RelativeLayout>
@@ -140,7 +140,7 @@
                     android:id="@+id/sidebarMetricTempLabel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TEMP"
+                    android:text="温度"
                     android:textColor="#ffffff"
                     android:layout_marginTop="26dp"
                     android:textSize="12sp" />
