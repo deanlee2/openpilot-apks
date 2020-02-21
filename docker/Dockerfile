@@ -69,6 +69,8 @@ RUN git clone https://github.com/capnproto/capnproto-java.git && cd capnproto-ja
 # install capnp
 RUN curl -s https://raw.githubusercontent.com/commaai/cereal/master/install_capnp.sh | bash -
 
+COPY ./../../wepilot/phonelibs/install_capnp.sh /tmp/install_capnp.sh
+RUN /tmp/install_capnp.sh
 # apk time
 RUN mkdir -p /tmp/openpilot/apks
 WORKDIR /tmp/openpilot/apks
