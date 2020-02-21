@@ -776,18 +776,22 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleLaneChangeRadioPressed('index') }>
-                        we lane changes
+                        {/* we lane changes */}
+                        切换车道
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
-                        Perform Lane Change
+                        {/* Perform Lane Change */}
+                        切换车道
                     </X.Text>
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        Continuously observe your surroundings for safety while
+                            在打转向灯，确认路况安全以后，朝想要切换车道的方向微打一下方向盘后，wepilot将执行切换车道的工作。
+                            因为传感器的限制，wepilot无法检测测后方的车辆，请您务必确认安全后再切换车道！！！
+                        {/* Continuously observe your surroundings for safety while
                         gently nudging the steering wheel towards your desired
                         lane. The combination of turn signal and wheel nudge
-                        will prompt wepilot to change lanes.
+                        will prompt wepilot to change lanes. */}
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -795,7 +799,8 @@ class Onboarding extends Component {
                         <X.Text
                             size='small' color='white' weight='semibold'
                             style={ Styles.onboardingStepPointInstructionText }>
-                            Select steering wheel
+                            {/* Select steering wheel */}
+                            点击方向盘
                         </X.Text>
                         <X.Image
                             source={ require('../../../img/icon_chevron_right.png') }
@@ -868,18 +873,22 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleDisengageRadioPressed('index') }>
-                        wepilot disengaging
+                        {/* wepilot disengaging */}
+                        wepilot的限制
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
-                        Limited Features
+                        {/* Limited Features */}
+                        wepilot无法识别以下场景
                     </X.Text>
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        Keep in mind that certain situations are not handled by
+                        wepilot并不能识别所有路况，比如无法识别红绿灯，人行横刀线，交通标志，以及从其他车道近距离快速切入的车辆。
+                        您必须时刻关注路况，并在这些情况出现时，取消自动驾驶，自己接管。
+                        {/* Keep in mind that certain situations are not handled by
                         wepilot. Scenarios such as traffic lights, stop signs,
                         quick vehicle cutins and pedestrians are unrecognized
-                        and wepilot may accelerate.
+                        and wepilot may accelerate. */}
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -887,7 +896,8 @@ class Onboarding extends Component {
                         <X.Text
                             size='small' color='white' weight='semibold'
                             style={ Styles.onboardingStepPointInstructionText }>
-                            Select light to continue
+                            {/* Select light to continue */}
+                            点击红绿灯
                         </X.Text>
                         <X.Image
                             source={ require('../../../img/icon_chevron_right.png') }
@@ -909,18 +919,22 @@ class Onboarding extends Component {
                         size='small' color='ghost' textWeight='light'
                         style={ Styles.onboardingStepPointCrumb }
                         onPress={ () => this.handleDisengageRadioPressed('index') }>
-                        openpilot disengaging
+                        {/* openpilot disengaging */}
+                        取消wepilot
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
-                        Disengage wepilot
+                        {/* Disengage wepilot */}
+                        取消自动驾驶
                     </X.Text>
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        While wepilot is engaged, you may keep your hands
+                        {/* While wepilot is engaged, you may keep your hands
                         on the wheel to override lateral controls. Longitudinal
                         controls will be managed by wepilot until the gas
-                        or brake pedal is pressed to disengage.
+                        or brake pedal is pressed to disengage. */}
+                        自动驾驶激活后，您随时可以自己操纵方向盘来改变方向。此时油门和刹车仍由自动驾驶
+                        系统控制，踩下刹车或油门踏板，可以取消自动驾驶。
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }
@@ -928,7 +942,8 @@ class Onboarding extends Component {
                         <X.Text
                             size='small' color='white' weight='semibold'
                             style={ Styles.onboardingStepPointInstructionText }>
-                            Tap a pedal to disengage
+                            {/* Tap a pedal to disengage */}
+                            点击踏板
                         </X.Text>
                         <X.Image
                             source={ require('../../../img/icon_chevron_right.png') }
@@ -969,14 +984,16 @@ class Onboarding extends Component {
                 <X.Text
                     size='jumbo' color='white' weight='bold'
                     style={ Styles.onboardingStepHeader }>
-                    Congratulations! You have completed wepilot training.
+                    {/* Congratulations! You have completed wepilot training. */}
+                    教程结束
                 </X.Text>
                 <X.Text
                     color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                    This guide can be replayed at any time from the
+                    {/* This guide can be replayed at any time from the
                     device settings. To learn more about wepilot, read the
-                    wiki and join the community at discord.comma.ai
+                    wiki and join the community at discord.comma.ai */}
+                    您可以随时再次观看本教程。
                 </X.Text>
                 <X.Line color='transparent' spacing='small' />
                 <View style={ Styles.onboardingActionsRow }>
@@ -984,7 +1001,8 @@ class Onboarding extends Component {
                         <X.Button
                             color='setupPrimary'
                             onPress={ this.props.completeTrainingStep }>
-                            Finish Training
+                            {/* Finish Training */}
+                            结束教程
                         </X.Button>
                     </View>
                     <View style={ Styles.onboardingSecondaryAction }>
@@ -992,7 +1010,8 @@ class Onboarding extends Component {
                             color='setupInverted'
                             textColor='white'
                             onPress={ this.handleRestartPressed }>
-                            Restart
+                            {/* Restart */}
+                            重新观看教程
                         </X.Button>
                     </View>
                 </View>
