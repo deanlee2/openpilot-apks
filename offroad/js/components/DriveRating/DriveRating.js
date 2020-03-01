@@ -75,7 +75,7 @@ class DriveRating extends Component {
                             color='white'
                             size='jumbo'
                             weight='bold'>
-                            How was your drive?
+                            本次wepilot自动驾驶的体验如何？
                         </X.Text>
                     </View>
                     <View style={ Styles.driveRatingSubtitle }>
@@ -83,7 +83,7 @@ class DriveRating extends Component {
                             color='lightGrey200'
                             size='medium'
                             weight='regular'>
-                            Tell us how openpilot performed for this drive.
+                            请给本次自动驾驶的操作打分，便于我们根据记录的数据，改进自动驾驶的算法，给您更好的体验。
                         </X.Text>
                     </View>
                     <X.Entrance style={ Styles.driveRatingSelections }>

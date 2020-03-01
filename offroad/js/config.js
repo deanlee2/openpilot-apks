@@ -33,7 +33,8 @@ export const Params = {
     KEY_OFFROAD_IS_TAKING_SNAPSHOT: 'Offroad_IsTakingSnapshot',
     KEY_COMMUNITY_FEATURES: 'CommunityFeaturesToggle',
     KEY_LANE_DEPARTURE_WARNING_ENABLED: 'IsLdwEnabled',
+    KEY_LANE_CHANGE_ENABLED: 'LaneChangeEnabled',
     KEY_DRIVER_MONITOR_ENABLED: 'IsDriverMonitorEnabled',
     KEY_WEPILOT_SIMPLE_MODEL: 'WepilotIsSimpleModel',
-    KEY_LANE_CHANGE_ENABLED: 'LaneChangeEnabled',
+    
 };
