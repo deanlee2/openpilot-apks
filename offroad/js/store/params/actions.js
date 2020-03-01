@@ -40,16 +40,9 @@ const PARAMS = [
   "PandaDongleId",
   "CommunityFeaturesToggle",
   "IsLdwEnabled",
-<<<<<<< HEAD
-<<<<<<< HEAD
   "IsDriverMonitorEnabled",
   "WepilotIsSimpleModel",
-=======
   "LaneChangeEnabled",
->>>>>>> openpilot-apks/master
-=======
-  "LaneChangeEnabled",
->>>>>>> openpilot-apks/master
 ].concat(ALERT_PARAMS);
 
 export function refreshParams(params) {
