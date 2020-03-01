@@ -41,8 +41,12 @@ const PARAMS = [
   "CommunityFeaturesToggle",
   "IsLdwEnabled",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "IsDriverMonitorEnabled",
   "WepilotIsSimpleModel",
+=======
+  "LaneChangeEnabled",
+>>>>>>> openpilot-apks/master
 =======
   "LaneChangeEnabled",
 >>>>>>> openpilot-apks/master

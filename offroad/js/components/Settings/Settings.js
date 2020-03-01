@@ -263,6 +263,7 @@ class Settings extends Component {
                 Passive: isPassive,
                 IsLdwEnabled: isLaneDepartureWarningEnabled,
                 IsDriverMonitorEnabled: isDMEnabled,
+                LaneChangeEnabled: laneChangeEnabled,
             }
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
@@ -295,6 +296,17 @@ class Settings extends Component {
                                 handleExpanded={() => this.handleExpanded('openpilot_enabled')}
                                 handleChanged={this.props.setOpenpilotEnabled} />
                         ) : null}
+                        { !parseInt(isPassive) ? (
+                            <X.TableCell
+                                type='switch'
+                                title='允许自动换道'
+                                value={ !!parseInt(laneChangeEnabled) }
+                                iconSource={ Icons.openpilot }
+                                description='Perform assisted lane changes with openpilot by checking your surroundings for safety, activating the turn signal and gently nudging the steering wheel towards your desired lane. openpilot is not capable of checking if a lane change is safe. You must continuously observe your surroundings to use this feature.'
+                                isExpanded={ expandedCell == 'lanechange_enabled' }
+                                handleExpanded={ () => this.handleExpanded('lanechange_enabled') }
+                                handleChanged={ this.props.setLaneChangeEnabled } />
+                        ) : null }
                         <X.TableCell
                             type='switch'
                             title='车道偏离警告'
@@ -330,7 +342,7 @@ class Settings extends Component {
                             title='Use Metric System'
                             value={ !!parseInt(isMetric) }
                             iconSource={ Icons.metric }
-                            description='Display speed in km/h instead of mp/h and temperature in °C instead of °F.'
+                            description='Display speed in km/h instead of mp/h.'
                             isExpanded={ expandedCell == 'metric' }
                             handleExpanded={ () => this.handleExpanded('metric') }
                             handleChanged={ this.props.setMetric } /> */}
@@ -904,6 +916,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setWepilotSimpleMode: (isSimpleModel) => {
         dispatch(updateParam(Params.KEY_WEPILOT_SIMPLE_MODEL, (isSimpleModel | 0).toString()));
+    },
+    setLaneChangeEnabled: (laneChangeEnabled) => {
+        dispatch(updateParam(Params.KEY_LANE_CHANGE_ENABLED, (laneChangeEnabled | 0).toString()));
     },
     deleteParam: (param) => {
         dispatch(deleteParam(param));
