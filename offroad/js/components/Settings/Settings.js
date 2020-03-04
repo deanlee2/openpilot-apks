@@ -593,6 +593,7 @@ class Settings extends Component {
                 PandaDongleId: pandaDongleId,
                 CommunityFeaturesToggle: communityFeatures,
                 WepilotIsSimpleModel: isSimpleModel,
+                WepilotAllowGas: wepilotAllowGas,
             },
         } = this.props;
         const { expandedCell } = this.state;
@@ -639,7 +640,16 @@ class Settings extends Component {
                             description='simple mode'
                             isExpanded={ expandedCell == 'simple_mode' }
                             handleExpanded={ () => this.handleExpanded('simple_mode') }
-                            handleChanged={ this.props.setWepilotSimpleMode } />
+                            handleChanged={this.props.setWepilotSimpleMode} />
+                          <X.TableCell
+                            type='switch'
+                            title='允许油门'
+                            value={ !!parseInt(wepilotAllowGas) }
+                            iconSource={ Icons.developer }
+                            description='在自动驾驶期间允许使用油门'
+                            isExpanded={ expandedCell == 'allow_gas' }
+                            handleExpanded={ () => this.handleExpanded('allow_gas') }
+                            handleChanged={ this.props.setAllowGas } />
                         {/* <X.TableCell
                             type='switch'
                             title='enable SSH'
@@ -917,6 +927,9 @@ const mapDispatchToProps = dispatch => ({
     },
     setWepilotSimpleMode: (isSimpleModel) => {
         dispatch(updateParam(Params.KEY_WEPILOT_SIMPLE_MODEL, (isSimpleModel | 0).toString()));
+    },
+    setAllowGas: (allowGas) => {
+        dispatch(updateParam(Params.KEY_WEPILOT_ALLOW_GAS, (allowGas | 0).toString()));
     },
     setLaneChangeEnabled: (laneChangeEnabled) => {
         dispatch(updateParam(Params.KEY_LANE_CHANGE_ENABLED, (laneChangeEnabled | 0).toString()));
