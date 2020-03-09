@@ -44,7 +44,7 @@ console.disableYellowBox = true;
 
 if (!__DEV__) {
     Sentry.init({
-        dsn: "https://de12614e35454c8caf98bef0fbe73594:62c10ec81d454f25bb6fe32ba4be05ac@sentry.io/3891250"
+        dsn: "https://de12614e35454c8caf98bef0fbe73594@sentry.io/3891250"
     });
 }
 

@@ -489,7 +489,7 @@ class MainActivity : Activity(), NewDestinationReceiverDelegate, OffroadNavigati
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         if (!BuildConfig.DEBUG) {
-            Sentry.init("https://bf3de6848ae04ab48a79b8cac70a87f2@sentry.io/226563", AndroidSentryClientFactory(this));
+            Sentry.init("https://de12614e35454c8caf98bef0fbe73594@sentry.io/3891250", AndroidSentryClientFactory(this));
             Sentry.getContext().user = UserBuilder().setId(ChffrPlusParams.readParam("DongleId")).build()
         }
         setContentView(R.layout.activity_main);
