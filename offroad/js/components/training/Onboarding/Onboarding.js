@@ -569,12 +569,12 @@ class Onboarding extends Component {
                 </View>
                 <View style={ Styles.onboardingStepPointBody }>
                     <X.Text size='bigger' color='white' weight='bold'>
-                        openpilot will engage when cruise control is set.
+                        点击巡航控制启动wepilot
                     </X.Text>
                     <X.Text
                         size='smallish' color='white' weight='light'
                         style={ Styles.onboardingStepContext }>
-                        Press cruise to engage and a pedal to disengage.
+                        点击取消巡航控制或踩踏板取消wepilot
                     </X.Text>
                     <X.RadioField
                         size='big'
@@ -609,14 +609,12 @@ class Onboarding extends Component {
                     激活自动驾驶
                 </X.Button>
                 <X.Text size='medium' color='white' weight='bold'>
-                    Engage wepilot
+                    激活 wepilot
                 </X.Text>
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                    When you are ready to engage openpilot at a comfortable
-                    speed, locate the cruise controls on your steering wheel
-                    and press "SET" to begin.
+                    点击set激活wepilot
                 </X.Text>
                 <X.Button color='ghost'
                     style={ Styles.onboardingStepPointInstruction }
@@ -624,7 +622,7 @@ class Onboarding extends Component {
                     <X.Text
                         size='small' color='white' weight='semibold'
                         style={ Styles.onboardingStepPointInstructionText }>
-                        Tap "SET" to engage
+                       点击set
                     </X.Text>
                     <X.Image
                         source={ require('../../../img/icon_chevron_right.png') }
@@ -648,15 +646,14 @@ class Onboarding extends Component {
                         wepilot engaging
                     </X.Button>
                     <X.Text size='medium' color='white' weight='bold'>
-                        Driver Monitoring
+                        驾驶员监控
                     </X.Text>
                     <X.Text
                         size='small' color='white' weight='light'
                         style={ Styles.onboardingStepContextSmaller }>
-                        When wepilot is engaged, you must always pay attention!
-                        wepilot monitors awareness with 3D facial reconstruction
-                        and pose. Distracted drivers are alerted, then disengaged
-                        from wepilot until corrected.
+                        您必须在wepilot激活过程中保持注意力。
+                        wepilot会检测面部和坐姿，如果长时间分心会警告并推出自动驾驶。
+                        
                     </X.Text>
                     <X.Button color='ghost'
                         style={ Styles.onboardingStepPointInstruction }

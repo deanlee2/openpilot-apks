@@ -502,7 +502,7 @@ class Settings extends Component {
                                 color='settingsDefault'
                                 onPress={this.handlePressedResetCalibration}
                                 style={{ minWidth: '100%' }}>
-                                Reset
+                                校准
                             </X.Button>
                         </X.TableCell>
                     </X.Table>
@@ -511,7 +511,7 @@ class Settings extends Component {
                             title='Paired'
                             value={ isPaired ? 'Yes' : 'No' } /> */}
                         <X.TableCell
-                            title='Dongle ID'
+                            title='ID'
                             value={dongleId} />
                         <X.TableCell
                             title='Serial Number'
@@ -530,14 +530,14 @@ class Settings extends Component {
                             size='small'
                             color='settingsDefault'
                             onPress={() => this.props.reboot()}>
-                            Reboot
+                            重启
                         </X.Button>
                         <X.Line color='transparent' size='tiny' spacing='mini' />
                         <X.Button
                             size='small'
                             color='settingsDefault'
                             onPress={() => this.props.shutdown()}>
-                            Power Off
+                            关机
                         </X.Button>
                     </X.Table>
                 </ScrollView>
@@ -566,14 +566,14 @@ class Settings extends Component {
                             size='small'
                             color='settingsDefault'
                             onPress={this.props.openWifiSettings}>
-                            Open WiFi Settings
+                            无线局域网
                         </X.Button>
                         <X.Line color='transparent' size='tiny' spacing='mini' />
                         <X.Button
                             size='small'
                             color='settingsDefault'
                             onPress={() => ChffrPlus.openTetheringSettings()}>
-                            Open Tethering Settings
+                            热点设置
                         </X.Button>
                     </X.Table>
                 </ScrollView>
@@ -687,22 +687,22 @@ class Settings extends Component {
                             value={ gitRevision.slice(0, 12) }
                             valueTextSize='tiny' /> */}
                         <X.TableCell
-                            title='Panda Firmware'
+                            title='Firmware'
                             value={pandaFirmwareHex != null ? pandaFirmwareHex : 'N/A'}
                             valueTextSize='tiny' />
                         <X.TableCell
-                            title='Panda Dongle ID'
+                            title='ID'
                             value={(pandaDongleId != null && pandaDongleId != "unprovisioned") ? pandaDongleId : 'N/A'}
                             valueTextSize='tiny' />
                     </X.Table>
-                    <X.Table color='darkBlue' padding='big'>
+                    {/* <X.Table color='darkBlue' padding='big'>
                         <X.Button
                             color='settingsDefault'
                             size='small'
                             onPress={this.props.uninstall}>
                             {`Uninstall ${software}`}
                         </X.Button>
-                    </X.Table>
+                    </X.Table> */}
                 </ScrollView>
             </View>
         )

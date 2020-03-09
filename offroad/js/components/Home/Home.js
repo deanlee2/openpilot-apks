@@ -271,13 +271,13 @@ class Home extends Component {
                                     color='white'
                                     size='jumbo'
                                     weight='semibold'>
-                                    No Network Connection
+                                    无网络
                                 </X.Text>
                                 <X.Text
                                     color='lightGrey700'
                                     size='medium'
                                     style={ Styles.homeBodyDisconnectedContext }>
-                                    Connect to a WiFi or cellular network to upload and review your drives.
+                                    无法连接到互联网
                                 </X.Text>
                             </View>
                         </View>
@@ -289,7 +289,7 @@ class Home extends Component {
                                       color='white'
                                       size='tiny'
                                       weight='semibold'>
-                                      PAST WEEK
+                                      最近一周
                                   </X.Text>
                               </View>
                               <View style={ Styles.homeBodyStatsRow }>
@@ -349,7 +349,7 @@ class Home extends Component {
                                       color='white'
                                       size='tiny'
                                       weight='semibold'>
-                                      ALL TIME
+                                      总计
                                   </X.Text>
                               </View>
                               <View style={ Styles.homeBodyStatsRow }>
