@@ -43,6 +43,7 @@ const PARAMS = [
   "IsDriverMonitorEnabled",
   "WepilotIsSimpleModel",
   "WepilotAllowGas",
+  "WepilotDrawUI",
   "LaneChangeEnabled",
 ].concat(ALERT_PARAMS);
 

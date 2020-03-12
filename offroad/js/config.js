@@ -37,5 +37,6 @@ export const Params = {
     KEY_DRIVER_MONITOR_ENABLED: 'IsDriverMonitorEnabled',
     KEY_WEPILOT_SIMPLE_MODEL: 'WepilotIsSimpleModel',
     KEY_WEPILOT_ALLOW_GAS: 'WepilotAllowGas',
+    KEY_WEPILOT_DRAW_UI: 'WepilotDrawUI',
     
 };
