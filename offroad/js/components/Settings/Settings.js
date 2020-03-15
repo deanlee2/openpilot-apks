@@ -929,7 +929,7 @@ const mapDispatchToProps = dispatch => ({
     },
     setCommunityFeatures: (communityFeatures) => {
         if (communityFeatures == 1) {
-            Alert.alert('Enable Community Features', 'Community maintained features are not confirmed by comma.ai to meet the standard safety model. Be extra cautious using them.', [
+            Alert.alert('启用测试版功能', '测试版功能可能包含一些未完整通过测试的功能模块，请小心使用。', [
                 { text: 'Cancel', onPress: () => { }, style: 'cancel' },
                 {
                     text: 'Enable', onPress: () => {
