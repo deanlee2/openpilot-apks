@@ -317,12 +317,12 @@ class MainActivity : Activity(), NewDestinationReceiverDelegate, OffroadNavigati
               sidebarMetricPandaBorder!!.getBackground().setAlpha(76);
             } else if (satelliteCount < 6) {
               // sidebarMetricPanda?.text = "PANDA\nNO GPS"
-              sidebarMetricPanda?.text = "已连接\n无gps"
+              sidebarMetricPanda?.text = "已连接\nGPS: $satelliteCount"
               sidebarMetricPandaEdge?.setColorFilter(colorYellow!!);
               sidebarMetricPandaBorder!!.getBackground().setAlpha(255);
             } else if (satelliteCount >= 6) {
               // sidebarMetricPanda?.text = "PANDA GOOD GPS"
-              sidebarMetricPanda?.text = "已连接 GPS"
+              sidebarMetricPanda?.text = "已连接\nGPS: $satelliteCount"
               sidebarMetricPandaEdge?.setColorFilter(colorWhite!!);
               sidebarMetricPandaBorder!!.getBackground().setAlpha(76);
             }
