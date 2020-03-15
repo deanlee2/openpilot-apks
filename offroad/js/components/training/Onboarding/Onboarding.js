@@ -472,7 +472,7 @@ class Onboarding extends Component {
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                        绘制的车道线宽度反应了当前车道的侵袭度。
+                        绘制的车道线宽度反应了当前车道的清晰度。
                     {/* The lane lines are drawn with varying widths to
                     reflect the confidence in finding your lane. */}
                 </X.Text>
@@ -520,17 +520,19 @@ class Onboarding extends Component {
                 <X.Text
                     size='small' color='white' weight='light'
                     style={ Styles.onboardingStepContextSmaller }>
-                    The indicator is drawn either red or yellow to
-                    illustrate relative speed to the lead car.
-                    
+                    前车标记的三角形的颜色表示了相对车速
+                    {/* The indicator is drawn either red or yellow to
+                    illustrate relative speed to the lead car. */}
+                     
                 </X.Text>
                 <X.Button color='ghost'
                     style={ Styles.onboardingStepPointInstruction }
                     onPress={ () => this.handleWrongGatePressed() }>
                     <X.Text
                         size='small' color='white' weight='semibold'
-                        style={ Styles.onboardingStepPointInstructionText }>
-                        Select lead car indicator
+                        style={Styles.onboardingStepPointInstructionText}>
+                        点击前车三角形指示
+                        {/* Select lead car indicator */}
                     </X.Text>
                     <X.Image
                         source={ require('../../../img/icon_chevron_right.png') }
@@ -582,7 +584,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('cruise') }
                         hasAppend={ true }
                         onPress={ () => this.handleEngageRadioPressed('cruise') }
-                        label='Engage openpilot' />
+                        label='激活wepilot' />
                     <X.RadioField
                         size='big'
                         color='white'
@@ -590,7 +592,7 @@ class Onboarding extends Component {
                         isChecked={ stepChecks.includes('monitoring') }
                         hasAppend={ true }
                         onPress={ () => this.handleEngageRadioPressed('monitoring') }
-                        label='Driver Monitoring' />
+                        label='驾驶员监控' />
                 </View>
             </View>
         )
@@ -661,7 +663,8 @@ class Onboarding extends Component {
                         <X.Text
                             size='small' color='white' weight='semibold'
                             style={ Styles.onboardingStepPointInstructionText }>
-                            Select face to continue
+                            {/* Select face to continue */}
+                            点击面部继续
                         </X.Text>
                         <X.Image
                             source={ require('../../../img/icon_chevron_right.png') }
