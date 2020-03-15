@@ -24,7 +24,6 @@ import {
     deleteParam,
     updateParam,
     refreshParams,
-    d
 } from '../../store/params/actions';
 
 import X from '../../themes';

@@ -9,7 +9,7 @@ CEREAL="$PWD/../../cereal"
 export SENTRY_SKIP_UPLOAD=${SENTRY_SKIP_UPLOAD:-1}
 
 if [ ! -d $CEREAL ]; then
-  git clone httpsls github.com/commaai/cereal.git $CEREAL
+  git clone https github.com/commaai/cereal.git $CEREAL
 fi
 
 pushd $CEREAL
