@@ -38,5 +38,6 @@ export const Params = {
     KEY_WEPILOT_SIMPLE_MODEL: 'WepilotIsSimpleModel',
     KEY_WEPILOT_ALLOW_GAS: 'WepilotAllowGas',
     KEY_WEPILOT_DRAW_UI: 'WepilotDrawUI',
+    KEY_WEPILOT_CAMERA_OFFSET: 'WepilotCameraOffset',
     
 };
