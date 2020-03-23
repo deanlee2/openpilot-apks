@@ -287,7 +287,7 @@ class Settings extends Component {
                         {this.renderSettingsMenu()}
                     </X.Table>
                     <X.Table color='darkBlue'>
-                        {!parseInt(isPassive) ? (
+                        {/* {!parseInt(isPassive) ? (
                             <X.TableCell
                                 type='switch'
                                 title='自动驾驶'
@@ -298,8 +298,8 @@ class Settings extends Component {
                                 isExpanded={expandedCell == 'openpilot_enabled'}
                                 handleExpanded={() => this.handleExpanded('openpilot_enabled')}
                                 handleChanged={this.props.setOpenpilotEnabled} />
-                        ) : null}
-                        { !parseInt(isPassive) ? (
+                        ) : null} */}
+                        {/* { !parseInt(isPassive) ? (
                             <X.TableCell
                                 type='switch'
                                 title='允许自动换道'
@@ -310,8 +310,8 @@ class Settings extends Component {
                                 isExpanded={ expandedCell == 'lanechange_enabled' }
                                 handleExpanded={ () => this.handleExpanded('lanechange_enabled') }
                                 handleChanged={ this.props.setLaneChangeEnabled } />
-                        ) : null }
-                        <X.TableCell
+                        ) : null } */}
+                        {/* <X.TableCell
                             type='switch'
                             title='车道偏离警告'
                             value={!!parseInt(isLaneDepartureWarningEnabled)}
@@ -320,7 +320,7 @@ class Settings extends Component {
                             description='车速超过50公里后，如果车辆偏离车道，将发出报警.'
                             isExpanded={expandedCell == 'ldw'}
                             handleExpanded={() => this.handleExpanded('ldw')}
-                            handleChanged={this.props.setLaneDepartureWarningEnabled} />
+                            handleChanged={this.props.setLaneDepartureWarningEnabled} /> */}
                         <X.TableCell
                             type='switch'
                             title='驾驶员监控'
@@ -330,7 +330,7 @@ class Settings extends Component {
                             isExpanded={expandedCell == 'driver_monitoring'}
                             handleExpanded={() => this.handleExpanded('driver_monitoring')}
                             handleChanged={this.props.setDriverMonitoringEnabled} />
-                        <X.TableCell
+                        {/* <X.TableCell
                             type='switch'
                             // title='Record and Upload Driver Camera'
                             title='上传摄像头数据'
@@ -340,7 +340,7 @@ class Settings extends Component {
                             // description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
                             isExpanded={expandedCell == 'record_front'}
                             handleExpanded={() => this.handleExpanded('record_front')}
-                            handleChanged={this.props.setRecordFront} />
+                            handleChanged={this.props.setRecordFront} /> */}
                         {/* * <X.TableCell
                             type='switch'
                             title='Use Metric System'
