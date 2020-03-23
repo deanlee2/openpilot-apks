@@ -219,9 +219,9 @@ class SetupWifi extends Component {
                             size='tiny'
                             color='lightGrey200'
                             weight='light'>
-                            { isConnected ? 'Connected'
-                                : isConnecting ? 'Authenticating...'
-                                : hasAttempted ? 'Authentication problem'
+                            { isConnected ? '已连接'
+                                : isConnecting ? '网络连接中...'
+                                : hasAttempted ? '身份验证错误'
                                 : item.security }
                         </X.Text>
                     </View>
@@ -239,7 +239,7 @@ class SetupWifi extends Component {
                                     color='white'
                                     size='small'
                                     weight='semibold'>
-                                    Connected
+                                    已连接
                                 </X.Text>
                             </X.Button>
                         ): null }
@@ -262,7 +262,7 @@ class SetupWifi extends Component {
                                 size='small'
                                 onPress={ () => this.onTapToConnect(item) }
                                 style={ Styles.setupWifiNetworkButton }>
-                                Connect
+                                连接
                             </X.Button>
                         ) : null }
                     </View>
@@ -313,7 +313,7 @@ class SetupWifi extends Component {
                                         color='lightGrey700'
                                         size='small'
                                         weight='semibold'>
-                                        Cancel
+                                        取消
                                     </X.Text>
                                 </X.Button>
                                 <X.Button
@@ -326,7 +326,7 @@ class SetupWifi extends Component {
                                         color='white'
                                         size='small'
                                         weight='semibold'>
-                                        Connect
+                                        连接
                                     </X.Text>
                                 </X.Button>
                             </View>
@@ -334,7 +334,7 @@ class SetupWifi extends Component {
                         <X.Text
                             size='small'
                             weight='semibold'>
-                            The network "{ connectingNetwork ? connectingNetwork.ssid : '' }" requires a password.
+                            无线网络 "{ connectingNetwork ? connectingNetwork.ssid : '' }" 需要输入密码.
                         </X.Text>
                         <View style={ Styles.setupWifiPasswordInputRow }>
                             <View style={ Styles.setupWifiPasswordInputLabel }>
@@ -342,7 +342,7 @@ class SetupWifi extends Component {
                                     size='small'
                                     color='whiteFieldLabel'
                                     style={ Styles.setupWifiPasswordInputLabelText }>
-                                    Password:
+                                    密码:
                                 </X.Text>
                             </View>
                             <TextInput
@@ -363,14 +363,14 @@ class SetupWifi extends Component {
                             color='white'
                             size='big'
                             weight='bold'>
-                            Connect to WiFi
+                            连接到无线网络
                         </X.Text>
                         <X.Button
                             size='small'
                             color='setupInverted'
                             onPress={ this.props.handleSetupWifiMoreOptionsPressed }
                             style={ Styles.setupWifiHeaderButton }>
-                            More Options
+                            更多选项
                         </X.Button>
                     </View>
                     <View style={ Styles.setupWifiNetworks }>
@@ -390,7 +390,7 @@ class SetupWifi extends Component {
                                     <X.Text
                                         color='white'
                                         size='small'>
-                                        { isLoading && networks.length == 0 ? 'Scanning WiFi Networks...'
+                                        { isLoading && networks.length == 0 ? '无线网络扫描中...'
                                             : !isLoading && networks.length == 0 ?
                                             this.state.errorMessage : '' }
                                     </X.Text>
@@ -407,7 +407,7 @@ class SetupWifi extends Component {
                                 <X.Text
                                     color='white'
                                     weight='semibold'>
-                                    Go Back
+                                    返回
                                 </X.Text>
                             </X.Button>
                         ) : null }
@@ -418,7 +418,7 @@ class SetupWifi extends Component {
                             <X.Text
                                 color='white'
                                 weight='semibold'>
-                                { !connectedNetworkSsid ? 'Skip For Now' : 'Continue' }
+                                { !connectedNetworkSsid ? '暂时跳过' : '继续' }
                             </X.Text>
                         </X.Button>
                     </View>

@@ -517,14 +517,14 @@ class Settings extends Component {
                             title='ID'
                             value={dongleId} />
                         <X.TableCell
-                            title='Serial Number'
+                            title='序列号'
                             value={serialNumber} />
                         <X.TableCell
-                            title='Free Storage'
+                            title='剩余空间'
                             value={parseInt(freeSpace) + '%'}
                         />
                         <X.TableCell
-                            title='Upload Speed'
+                            title='上传速度'
                             value={txSpeedKbps + ' kbps'}
                         />
                     </X.Table>
