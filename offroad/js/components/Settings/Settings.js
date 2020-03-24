@@ -576,7 +576,7 @@ class Settings extends Component {
                             size='small'
                             color='settingsDefault'
                             onPress={ this.props.openTetheringSettings }>
-                            Open Tethering Settings
+                            热点设置
                         </X.Button>
                     </X.Table>
                 </ScrollView>
