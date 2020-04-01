@@ -330,17 +330,17 @@ class Settings extends Component {
                             isExpanded={expandedCell == 'driver_monitoring'}
                             handleExpanded={() => this.handleExpanded('driver_monitoring')}
                             handleChanged={this.props.setDriverMonitoringEnabled} />
-                        {/* <X.TableCell
+                        <X.TableCell
                             type='switch'
                             // title='Record and Upload Driver Camera'
-                            title='上传摄像头数据'
+                            title='上传驾驶员监控数据'
                             value={!!parseInt(recordFront)}
                             iconSource={Icons.network}
-                            description='上传摄像头数据.'
+                            description='上传驾驶员监控.'
                             // description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
                             isExpanded={expandedCell == 'record_front'}
                             handleExpanded={() => this.handleExpanded('record_front')}
-                            handleChanged={this.props.setRecordFront} /> */}
+                            handleChanged={this.props.setRecordFront} />
                         {/* * <X.TableCell
                             type='switch'
                             title='Use Metric System'
@@ -596,7 +596,7 @@ class Settings extends Component {
                 PandaDongleId: pandaDongleId,
                 CommunityFeaturesToggle: communityFeatures,
                 WepilotIsSimpleModel: isSimpleModel,
-                WepilotAllowGas: wepilotAllowGas,
+                WepilotEnableLogger: wepilotEnableLogger,
                 WepilotDrawUI: wepilotDrawUI,
             },
         } = this.props;
@@ -647,13 +647,13 @@ class Settings extends Component {
                             handleChanged={this.props.setWepilotSimpleMode} />
                           <X.TableCell
                             type='switch'
-                            title='允许油门'
-                            value={ !!parseInt(wepilotAllowGas) }
+                            title='允许记录日志'
+                            value={ !!parseInt(wepilotEnableLogger) }
                             iconSource={ Icons.developer }
-                            description='在自动驾驶期间允许使用油门'
-                            isExpanded={ expandedCell == 'allow_gas' }
-                            handleExpanded={ () => this.handleExpanded('allow_gas') }
-                            handleChanged={this.props.setAllowGas} />
+                            description='允许记录日志'
+                            isExpanded={ expandedCell == 'allow_logger' }
+                            handleExpanded={ () => this.handleExpanded('allow_logger') }
+                            handleChanged={this.props.setAllowLogger} />
                           <X.TableCell
                             type='switch'
                             title='UI'
@@ -950,8 +950,8 @@ const mapDispatchToProps = dispatch => ({
     setWepilotSimpleMode: (isSimpleModel) => {
         dispatch(updateParam(Params.KEY_WEPILOT_SIMPLE_MODEL, (isSimpleModel | 0).toString()));
     },
-    setAllowGas: (allowGas) => {
-        dispatch(updateParam(Params.KEY_WEPILOT_ALLOW_GAS, (allowGas | 0).toString()));
+    setAllowLogger: (allowLogger) => {
+        dispatch(updateParam(Params.KEY_WEPILOT_ENABLE_LOGGER, (allowLogger | 0).toString()));
     },
     setAllowUI: (allowUI) => {
         dispatch(updateParam(Params.KEY_WEPILOT_DRAW_UI, (allowUI | 0).toString()));
