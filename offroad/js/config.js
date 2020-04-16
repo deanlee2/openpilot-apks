@@ -40,4 +40,7 @@ export const Params = {
     KEY_WEPILOT_DRAW_UI: 'WepilotDrawUI',
     KEY_WEPILOT_CAMERA_OFFSET: 'WepilotCameraOffset',
     
+    KEY_IS_DRIVER_VIEW_ENABLED: 'IsDriverViewEnabled',
+    KEY_IS_RHD: 'IsRHD',
+    KEY_IS_OFFROAD: 'IsOffroad',
 };

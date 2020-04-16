@@ -3,7 +3,7 @@ set -e
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 cd $DIR
 
-APK_OUT=${1:-$PWD/ai.comma.plus.offroad.apk}
+APK_OUT=${1:-$PWD/../../wepilot/apk/ai.comma.plus.offroad.apk}
 TOOLS="$PWD/../tools"
 CEREAL="$PWD/../../cereal"
 export SENTRY_SKIP_UPLOAD=${SENTRY_SKIP_UPLOAD:-1}

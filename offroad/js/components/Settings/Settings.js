@@ -51,6 +51,9 @@ const Icons = {
     minus: require('../../img/icon_minus.png'),
     mapSpeed: require('../../img/icon_map.png'),
     openpilot: require('../../img/icon_openpilot.png'),
+    openpilot_mirrored: require('../../img/icon_openpilot_mirrored.png'),
+    monitoring: require('../../img/icon_monitoring.png'),
+    road: require('../../img/icon_road.png'),
 }
 
 class Settings extends Component {
@@ -255,6 +258,7 @@ class Settings extends Component {
         const {
             params: {
                 RecordFront: recordFront,
+                IsRHD: isRHD,
                 IsMetric: isMetric,
                 LongitudinalControl: hasLongitudinalControl,
                 LimitSetSpeed: limitSetSpeed,
@@ -264,7 +268,7 @@ class Settings extends Component {
                 IsLdwEnabled: isLaneDepartureWarningEnabled,
                 IsDriverMonitorEnabled: isDMEnabled,
                 LaneChangeEnabled: laneChangeEnabled,
-            }
+            },
         } = this.props;
         const { expandedCell, speedLimitOffsetInt } = this.state;
         return (
@@ -339,6 +343,23 @@ class Settings extends Component {
                             handleExpanded={() => this.handleExpanded('record_front')}
                             handleChanged={this.props.setRecordFront} />
                         {/* * <X.TableCell
+                            title='Record and Upload Driver Camera'
+                            value={ !!parseInt(recordFront) }
+                            iconSource={ Icons.network }
+                            description='Upload data from the driver facing camera and help improve the driver monitoring algorithm.'
+                            isExpanded={ expandedCell == 'record_front' }
+                            handleExpanded={ () => this.handleExpanded('record_front') }
+                            handleChanged={ this.props.setRecordFront } />
+                        <X.TableCell
+                            type='switch'
+                            title='Enable Right-Hand Drive'
+                            value={ !!parseInt(isRHD) }
+                            iconSource={ Icons.openpilot_mirrored }
+                            description='Allow openpilot to obey left-hand traffic conventions and perform driver monitoring on right driver seat.'
+                            isExpanded={ expandedCell == 'is_rhd' }
+                            handleExpanded={ () => this.handleExpanded('is_rhd') }
+                            handleChanged={ this.props.setIsRHD } />
+                        <X.TableCell
                             type='switch'
                             title='Use Metric System'
                             value={ !!parseInt(isMetric) }
@@ -473,6 +494,7 @@ class Settings extends Component {
                 DongleId: dongleId,
                 Passive: isPassive,
             },
+            isOffroad,
         } = this.props;
         const software = !!parseInt(isPassive) ? 'chffrplus' : 'wepilot';
         return (
@@ -503,6 +525,24 @@ class Settings extends Component {
                                 onPress={this.handlePressedResetCalibration}
                                 style={{ minWidth: '100%' }}>
                                 校准
+                            </X.Button>
+                        </X.TableCell>
+                    </X.Table>
+                    <X.Table color='darkBlue'>
+                        <X.TableCell
+                            type='custom'
+                            title='Driver Camera View'
+                            iconSource={ Icons.monitoring }
+                            description='Preview the driver facing camera to help optimize device mounting position for best driver monitoring experience. (offroad use only)'
+                            isExpanded={ expandedCell == 'driver_view_enabled' }
+                            handleExpanded={ () => this.handleExpanded('driver_view_enabled') } >
+                            <X.Button
+                                size='tiny'
+                                color='settingsDefault'
+                                isDisabled={ !isOffroad }
+                                onPress={ this.props.setIsDriverViewEnabled  }
+                                style={ { minWidth: '100%' } }>
+                                Preview
                             </X.Button>
                         </X.TableCell>
                     </X.Table>
@@ -850,6 +890,7 @@ const mapStateToProps = state => ({
     simState: state.host.simState,
     wifiState: state.host.wifiState,
     isPaired: state.host.device && state.host.device.is_paired,
+    isOffroad: state.host.isOffroad,
 
     // Uploader
     txSpeedKbps: parseInt(state.uploads.txSpeedKbps),
@@ -910,6 +951,12 @@ const mapDispatchToProps = dispatch => ({
     },
     setRecordFront: (recordFront) => {
         dispatch(updateParam(Params.KEY_RECORD_FRONT, (recordFront | 0).toString()));
+    },
+    setIsRHD: (isRHD) => {
+        dispatch(updateParam(Params.KEY_IS_RHD, (isRHD | 0).toString()));
+    },
+    setIsDriverViewEnabled: (isDriverViewEnabled) => {
+        dispatch(updateParam(Params.KEY_IS_DRIVER_VIEW_ENABLED, (isDriverViewEnabled | 1).toString()));
     },
     setSshEnabled: (isSshEnabled) => {
         dispatch(updateSshEnabled(!!isSshEnabled));
