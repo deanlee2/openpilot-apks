@@ -35,8 +35,8 @@ export const Params = {
     KEY_LANE_DEPARTURE_WARNING_ENABLED: 'IsLdwEnabled',
     KEY_LANE_CHANGE_ENABLED: 'LaneChangeEnabled',
     KEY_DRIVER_MONITOR_ENABLED: 'IsDriverMonitorEnabled',
-    KEY_WEPILOT_SIMPLE_MODEL: 'WepilotIsSimpleModel',
     KEY_WEPILOT_ENABLE_LOGGER: 'WepilotEnableLogger',
+    KEY_WEPILOT_ENABLE_UPLOADER: 'WepilotEnableUploader',
     KEY_WEPILOT_DRAW_UI: 'WepilotDrawUI',
     KEY_WEPILOT_CAMERA_OFFSET: 'WepilotCameraOffset',
     

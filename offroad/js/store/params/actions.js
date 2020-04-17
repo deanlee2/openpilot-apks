@@ -42,7 +42,6 @@ const PARAMS = [
   "CommunityFeaturesToggle",
   "IsLdwEnabled",
   "IsDriverMonitorEnabled",
-  "WepilotIsSimpleModel",
   "WepilotEnableLogger",
   "WepilotDrawUI",
   "LaneChangeEnabled",

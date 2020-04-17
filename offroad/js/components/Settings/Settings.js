@@ -334,22 +334,15 @@ class Settings extends Component {
                         <X.TableCell
                             type='switch'
                             // title='Record and Upload Driver Camera'
-                            title='上传驾驶员监控数据'
+                            title='记录并上传驾驶员监控数据'
                             value={!!parseInt(recordFront)}
                             iconSource={Icons.network}
-                            description='上传驾驶员监控.'
+                            description='记录并上传驾驶员监控数据.'
                             // description='Upload data from the driver facing camera and help improve the Driver Monitoring algorithm.'
                             isExpanded={expandedCell == 'record_front'}
                             handleExpanded={() => this.handleExpanded('record_front')}
                             handleChanged={this.props.setRecordFront} />
-                        {/* * <X.TableCell
-                            title='Record and Upload Driver Camera'
-                            value={ !!parseInt(recordFront) }
-                            iconSource={ Icons.network }
-                            description='Upload data from the driver facing camera and help improve the driver monitoring algorithm.'
-                            isExpanded={ expandedCell == 'record_front' }
-                            handleExpanded={ () => this.handleExpanded('record_front') }
-                            handleChanged={ this.props.setRecordFront } />
+                        {/* 
                         <X.TableCell
                             type='switch'
                             title='Enable Right-Hand Drive'
@@ -531,9 +524,9 @@ class Settings extends Component {
                     <X.Table color='darkBlue'>
                         <X.TableCell
                             type='custom'
-                            title='Driver Camera View'
+                            title='驾驶员监控摄像头'
                             iconSource={ Icons.monitoring }
-                            description='Preview the driver facing camera to help optimize device mounting position for best driver monitoring experience. (offroad use only)'
+                            description='预览驾驶员监控摄像头拍摄的区域'
                             isExpanded={ expandedCell == 'driver_view_enabled' }
                             handleExpanded={ () => this.handleExpanded('driver_view_enabled') } >
                             <X.Button
@@ -632,8 +625,8 @@ class Settings extends Component {
                 PandaFirmwareHex: pandaFirmwareHex,
                 PandaDongleId: pandaDongleId,
                 CommunityFeaturesToggle: communityFeatures,
-                WepilotIsSimpleModel: isSimpleModel,
                 WepilotEnableLogger: wepilotEnableLogger,
+                WepilotEnableUploader: wepilotEnableUploader,
                 WepilotDrawUI: wepilotDrawUI,
             },
         } = this.props;
@@ -673,15 +666,15 @@ class Settings extends Component {
                             isExpanded={expandedCell == 'communityFeatures'}
                             handleExpanded={() => this.handleExpanded('communityFeatures')}
                             handleChanged={this.props.setCommunityFeatures} />
-                            <X.TableCell
+                        <X.TableCell
                             type='switch'
-                            title='simple model'
-                            value={ !!parseInt(isSimpleModel) }
+                            title='UI'
+                            value={ !!parseInt(wepilotDrawUI) }
                             iconSource={ Icons.developer }
-                            description='simple mode'
-                            isExpanded={ expandedCell == 'simple_mode' }
-                            handleExpanded={ () => this.handleExpanded('simple_mode') }
-                            handleChanged={this.props.setWepilotSimpleMode} />
+                            description='UI'
+                            isExpanded={ expandedCell == 'allow_ui' }
+                            handleExpanded={ () => this.handleExpanded('allow_ui') }
+                            handleChanged={ this.props.setAllowUI } />
                           <X.TableCell
                             type='switch'
                             title='允许记录日志'
@@ -691,15 +684,16 @@ class Settings extends Component {
                             isExpanded={ expandedCell == 'allow_logger' }
                             handleExpanded={ () => this.handleExpanded('allow_logger') }
                             handleChanged={this.props.setAllowLogger} />
-                          <X.TableCell
+                         <X.TableCell
                             type='switch'
-                            title='UI'
-                            value={ !!parseInt(wepilotDrawUI) }
+                            title='允许上传记录日志'
+                            value={ !!parseInt(wepilotEnableUploader) }
                             iconSource={ Icons.developer }
-                            description='UI'
-                            isExpanded={ expandedCell == 'allow_ui' }
-                            handleExpanded={ () => this.handleExpanded('allow_ui') }
-                            handleChanged={ this.props.setAllowUI } />
+                            description='允许上传记录日志'
+                            isExpanded={ expandedCell == 'allow_upload' }
+                            handleExpanded={ () => this.handleExpanded('allow_upload') }
+                            handleChanged={this.props.setAllowUploader} />
+                          
                         {/* <X.TableCell
                             type='switch'
                             title='enable SSH'
@@ -990,11 +984,11 @@ const mapDispatchToProps = dispatch => ({
     setDriverMonitoringEnabled: (isDMEnabled) => {
         dispatch(updateParam(Params.KEY_DRIVER_MONITOR_ENABLED, (isDMEnabled | 0).toString()));
     },
-    setWepilotSimpleMode: (isSimpleModel) => {
-        dispatch(updateParam(Params.KEY_WEPILOT_SIMPLE_MODEL, (isSimpleModel | 0).toString()));
-    },
     setAllowLogger: (allowLogger) => {
         dispatch(updateParam(Params.KEY_WEPILOT_ENABLE_LOGGER, (allowLogger | 0).toString()));
+    },
+    setAllowUploader: (allowUploader) => {
+        dispatch(updateParam(Params.KEY_WEPILOT_ENABLE_UPLOADER, (allowUploader | 0).toString()));
     },
     setAllowUI: (allowUI) => {
         dispatch(updateParam(Params.KEY_WEPILOT_DRAW_UI, (allowUI | 0).toString()));
