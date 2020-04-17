@@ -43,6 +43,7 @@ const PARAMS = [
   "IsLdwEnabled",
   "IsDriverMonitorEnabled",
   "WepilotEnableLogger",
+  "WepilotEnableUploader",
   "WepilotDrawUI",
   "LaneChangeEnabled",
   "IsRHD"
