@@ -469,6 +469,29 @@ class Settings extends Component {
         )
     }
 
+    calib_description(params){
+      var text = 'wepilot需要摄像头在左右4度和上下5度范围内. 运行过程中会自动校准，一般而言不需要重启校准.';
+      var calib_json = JSON.parse(params);
+      if (calib_json.hasOwnProperty('calib_radians')) {
+        var calibArr = (calib_json.calib_radians).toString().split(',');
+        var pi = Math.PI;
+        var pitch = parseFloat(calibArr[1]) * (180/pi)
+        var yaw = parseFloat(calibArr[2]) * (180/pi)
+        if (pitch > 0) {
+          var pitch_str = Math.abs(pitch).toFixed(1).concat('° 上')
+        } else {
+          var pitch_str = Math.abs(pitch).toFixed(1).concat('° 下')
+        }
+        if (yaw > 0) {
+          var yaw_str = Math.abs(yaw).toFixed(1).concat('° 右')
+        } else {
+          var yaw_str = Math.abs(yaw).toFixed(1).concat('° 左')
+        }
+        text = text.concat('\n\n您的设备状态 ', pitch_str, ' 和 ', yaw_str, '. ')
+      }
+      return text;
+    }
+
     renderDeviceSettings() {
         const {
             expandedCell,
@@ -482,6 +505,7 @@ class Settings extends Component {
             params: {
                 DongleId: dongleId,
                 Passive: isPassive,
+                CalibrationParams: calibrationParams,
             },
             isOffroad,
         } = this.props;
@@ -503,11 +527,10 @@ class Settings extends Component {
                         <X.TableCell
                             type='custom'
                             title='摄像头校准'
-                            iconSource={Icons.calibration}
-                            // description='The calibration algorithm is always active on the road facing camera. Resetting calibration is only advised when the device reports an invalid calibration alert or when the device is remounted in a different position.'
-                            description='提示需要重新校准时再使用该功能.'
-                            isExpanded={expandedCell == 'calibration'}
-                            handleExpanded={() => this.handleExpanded('calibration')}>
+                            iconSource={ Icons.calibration }
+                            description={ this.calib_description(calibrationParams) }
+                            isExpanded={ expandedCell == 'calibration' }
+                            handleExpanded={ () => this.handleExpanded('calibration') }>
                             <X.Button
                                 size='tiny'
                                 color='settingsDefault'
